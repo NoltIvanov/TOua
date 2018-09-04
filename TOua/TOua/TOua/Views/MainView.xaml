@@ -3,6 +3,7 @@
     x:Class="TransportAndOwner.Views.MainView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     dependency:DependencyLocator.AutoWireViewModel="True"
@@ -18,5 +19,7 @@
                 <TapGestureRecognizer Command="{Binding TestCommand}" NumberOfTapsRequired="1" />
             </Label.GestureRecognizers>
         </Label>
+
+        <controls:EntryExtended />
     </StackLayout>
 </ContentPage>
