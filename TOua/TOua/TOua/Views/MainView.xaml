@@ -21,5 +21,7 @@
         </Label>
 
         <controls:EntryExtended />
+
+        <controls:Indicator />
     </StackLayout>
 </ContentPage>
