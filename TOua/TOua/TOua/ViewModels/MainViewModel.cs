@@ -10,7 +10,7 @@ using Xamarin.Forms;
 namespace TransportAndOwner.ViewModels {
     public sealed class MainViewModel : ViewModelBase {
 
-        string _name = "TO";
+        string _name = "Hello world";
         public string Name {
             get { return _name; }
             set { SetProperty(ref _name, value); }
