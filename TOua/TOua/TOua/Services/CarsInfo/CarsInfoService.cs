@@ -21,7 +21,7 @@ namespace TOua.Services.CarsInfo {
         public Task<List<CarinfoDTO>> GetCarsInfoByCarIdAsync(string carId, CancellationTokenSource cancellationTokenSource) =>
             Task.Run<List<CarinfoDTO>>(async () => {
                 GetCarsInfoByCarIdRequest getCarsInfoByCarIdRequest = new GetCarsInfoByCarIdRequest() {
-                    Url = string.Format("http://31.128.79.4:13823/api/carid/getinfobycarnumber?carNumber={0}", carId)
+                    Url = string.Format("http://31.128.79.4:13823/api/carid/getinfobycarnumber?carNumber={0}", carId.Trim().ToUpper())
                 };
 
                 List<CarinfoDTO> foundCars = new List<CarinfoDTO>();
