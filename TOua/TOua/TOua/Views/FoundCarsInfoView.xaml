@@ -31,12 +31,16 @@
 
                 <!--  Pseudo action bar  -->
                 <Grid Grid.Row="0" Padding="20,0">
-                    <ffimage:CachedImage
-                        BackgroundColor="Black"
+                    <ContentView
                         HeightRequest="37"
                         HorizontalOptions="Start"
                         VerticalOptions="Center"
-                        WidthRequest="37" />
+                        WidthRequest="37">
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
+                        </ContentView.GestureRecognizers>
+                        <ffimage:CachedImage BackgroundColor="Black" />
+                    </ContentView>
 
                     <Label
                         FontSize="{StaticResource Key=PageTitles}"

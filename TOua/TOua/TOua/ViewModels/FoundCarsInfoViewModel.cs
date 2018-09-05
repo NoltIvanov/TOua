@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TOua.Services.CarsInfo;
+using TOua.ViewModels.ActionBars;
 using TOua.ViewModels.Base;
 using TOua.ViewModels.Popups;
 using TransportAndOwner.ViewModels.Base;
@@ -55,7 +56,7 @@ namespace TOua.ViewModels {
             /// TODO: Temporary implementation
             if (navigationData is string) {
                 TargetCarId = navigationData.ToString();
-                GetCarsInfo();
+                GetCarsInfo(TargetCarId);
             }
 
             TestPopupViewModel?.InitializeAsync(navigationData);
@@ -70,7 +71,7 @@ namespace TOua.ViewModels {
             ResetCancellationTokenSource(ref _getCarsCancellationTokenSource);
         }
 
-        private async void GetCarsInfo() {
+        private async void GetCarsInfo(string targetCarId) {
             ResetCancellationTokenSource(ref _getCarsCancellationTokenSource);
             CancellationTokenSource cancellationTokenSource = _getCarsCancellationTokenSource;
 
@@ -78,8 +79,9 @@ namespace TOua.ViewModels {
             SetBusy(busyKey, true);
 
             try {
-                await Task.Delay(900);
-                FoundCars = new List<object>() { new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object() };
+                //await Task.Delay(900);
+                //FoundCars = new List<object>() { new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object() };
+                await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
             }
             catch (OperationCanceledException) { }
             catch (ObjectDisposedException) { }

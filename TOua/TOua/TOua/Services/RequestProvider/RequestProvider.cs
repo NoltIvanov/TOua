@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -39,6 +40,8 @@ namespace TOua.Services.RequestProvider {
                 }
 
                 string json = httpResponseMessage.Content.ReadAsStringAsync().Result;
+
+                Debugger.Break();
 
                 responseToReturn = await Task.Run(() => JsonConvert.DeserializeObject<TResponse>(json));
 
