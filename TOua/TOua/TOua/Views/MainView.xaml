@@ -40,7 +40,7 @@
                 <Label
                     Grid.Row="1"
                     HorizontalOptions="Center"
-                    Text="Довідник автомобілів - тт"
+                    Text="Довідник автомобілів"
                     TextColor="{StaticResource Key=Black}"
                     VerticalOptions="Center" />
             </Grid>
