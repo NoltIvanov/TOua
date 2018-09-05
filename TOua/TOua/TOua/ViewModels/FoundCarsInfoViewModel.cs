@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TOua.Services.CarsInfo;
+using TOua.ViewModels.ActionBars;
 using TOua.ViewModels.Base;
 using TOua.ViewModels.Popups;
 using TransportAndOwner.ViewModels.Base;
@@ -11,10 +13,28 @@ using Xamarin.Forms;
 namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
 
-        private string _searchValue;
-        public string SearchValue {
-            get => _searchValue;
-            private set => SetProperty<string>(ref _searchValue, value);
+        private readonly ICarsInfoService _carsInfoService;
+
+        private CancellationTokenSource _getCarsCancellationTokenSource = new CancellationTokenSource();
+
+        public FoundCarsInfoViewModel(ICarsInfoService carsInfoService) {
+            _carsInfoService = carsInfoService;
+        }
+
+        public ICommand ViewCarInfoDetailsCommand => new Command((object param) => {
+            TestPopupViewModel.ViewCarInfoDetails(param);
+        });
+
+        private string _targetCarId;
+        public string TargetCarId {
+            get => _targetCarId;
+            private set => SetProperty<string>(ref _targetCarId, value);
+        }
+
+        private List<object> _foundCars = new List<object>();
+        public List<object> FoundCars {
+            get => _foundCars;
+            private set => SetProperty<List<object>>(ref _foundCars, value);
         }
 
         private CarInfoDetailsPopupViewModel _testPopupViewModel;
@@ -35,7 +55,8 @@ namespace TOua.ViewModels {
 
             /// TODO: Temporary implementation
             if (navigationData is string) {
-                SearchValue = navigationData.ToString();
+                TargetCarId = navigationData.ToString();
+                GetCarsInfo(TargetCarId);
             }
 
             TestPopupViewModel?.InitializeAsync(navigationData);
@@ -47,6 +68,29 @@ namespace TOua.ViewModels {
             base.Dispose();
 
             TestPopupViewModel?.Dispose();
+            ResetCancellationTokenSource(ref _getCarsCancellationTokenSource);
+        }
+
+        private async void GetCarsInfo(string targetCarId) {
+            ResetCancellationTokenSource(ref _getCarsCancellationTokenSource);
+            CancellationTokenSource cancellationTokenSource = _getCarsCancellationTokenSource;
+
+            Guid busyKey = Guid.NewGuid();
+            SetBusy(busyKey, true);
+
+            try {
+                await Task.Delay(900);
+                FoundCars = new List<object>() { new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object() };
+
+                await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+            }
+            catch (OperationCanceledException) { }
+            catch (ObjectDisposedException) { }
+            catch (Exception exc) {
+                await DialogService.ToastAsync(exc.Message);
+            }
+
+            SetBusy(busyKey, false);
         }
     }
 }

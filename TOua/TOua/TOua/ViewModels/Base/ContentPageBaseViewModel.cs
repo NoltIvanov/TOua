@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using TOua.ViewModels.ActionBars;
 using TransportAndOwner.ViewModels.Base;
 using Xamarin.Forms.Internals;
 
 namespace TOua.ViewModels.Base {
     public class ContentPageBaseViewModel : ViewModelBase {
         private readonly Dictionary<Guid, bool> _busySequence = new Dictionary<Guid, bool>();
-
-        public ContentPageBaseViewModel() {
-            ActionBarViewModel = DependencyLocator.Resolve<CommonActionBarViewModel>();
-            ActionBarViewModel.InitializeAsync(this);
-        }
 
         private ObservableCollection<PopupBaseViewModel> _popups = new ObservableCollection<PopupBaseViewModel>();
         public ObservableCollection<PopupBaseViewModel> Popups {
@@ -49,7 +43,10 @@ namespace TOua.ViewModels.Base {
         private ActionBarBaseViewModel _actionBarViewModel;
         public ActionBarBaseViewModel ActionBarViewModel {
             get => _actionBarViewModel;
-            protected set => SetProperty(ref _actionBarViewModel, value);
+            protected set {
+                _actionBarViewModel?.Dispose();
+                SetProperty(ref _actionBarViewModel, value);
+            }
         }
 
         public override void Dispose() {

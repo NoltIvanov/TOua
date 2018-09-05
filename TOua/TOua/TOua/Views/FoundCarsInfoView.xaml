@@ -3,27 +3,80 @@
     x:Class="TOua.Views.FoundCarsInfoView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:actionBars="clr-namespace:TOua.Views.ActionBars"
+    xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:stacklist="clr-namespace:TOua.Controls.Stacklist"
     xmlns:viewBase="clr-namespace:TOua.Views.Base"
-    dependency:DependencyLocator.AutoWireViewModel="True">
+    dependency:DependencyLocator.AutoWireViewModel="True"
+    BackgroundColor="WhiteSmoke">
     <viewBase:ContentPageBaseView.MainContent>
-        <Grid>
-            <Label
-                HorizontalOptions="Center"
-                Text="{Binding Path=SearchValue}"
-                VerticalOptions="Center" />
 
-            <Button
-                Command="{Binding Path=TestPopupViewModel.ShowPopupCommand}"
-                CommandParameter="Car info details parameter"
-                HorizontalOptions="Center"
-                Text="Hello"
-                VerticalOptions="End" />
+        <Grid>
+            <!--  Substarate  -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <BoxView Grid.Row="0" BackgroundColor="{StaticResource Key=Blue}" />
+            </Grid>
+
+            <!--  Page content scope  -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--  Pseudo action bar  -->
+                <Grid Grid.Row="0" Padding="20,0">
+                    <ContentView
+                        HeightRequest="37"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        WidthRequest="37">
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
+                        </ContentView.GestureRecognizers>
+                        <ffimage:CachedImage BackgroundColor="Black" />
+                    </ContentView>
+
+                    <Label
+                        FontSize="{StaticResource Key=PageTitles}"
+                        HorizontalOptions="Center"
+                        Text="{Binding Path=TargetCarId}"
+                        TextColor="{StaticResource Key=White}"
+                        VerticalOptions="Center" />
+                </Grid>
+
+                <ScrollView Grid.Row="1" Padding="20,0">
+                    <!--  Main content (found results scope)  -->
+                    <stacklist:StackList
+                        x:Name="_carsInfoList_StackList"
+                        ItemsSource="{Binding Path=FoundCars}"
+                        Spacing="9">
+                        <stacklist:StackList.ItemTemplate>
+                            <DataTemplate>
+                                <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
+                                    <controls:ExtendedContentView
+                                        Padding="20,25"
+                                        BackgroundColor="{StaticResource Key=White}"
+                                        CornerRadius="3">
+                                        <controls:ExtendedContentView.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
+                                        </controls:ExtendedContentView.GestureRecognizers>
+                                        <StackLayout Spacing="9">
+                                            <Label Text="790" />
+                                            <Label Text="Text binding in developing" />
+                                        </StackLayout>
+                                    </controls:ExtendedContentView>
+                                </stacklist:CommonStackListItem>
+                            </DataTemplate>
+                        </stacklist:StackList.ItemTemplate>
+                    </stacklist:StackList>
+                </ScrollView>
+            </Grid>
         </Grid>
     </viewBase:ContentPageBaseView.MainContent>
-
-    <viewBase:ContentPageBaseView.ActionBar>
-        <actionBars:CommonActionBarView />
-    </viewBase:ContentPageBaseView.ActionBar>
 </viewBase:ContentPageBaseView>
