@@ -39,9 +39,8 @@
                 <!--  Main header  -->
                 <Label
                     Grid.Row="1"
-                    FontSize="20"
                     HorizontalOptions="Center"
-                    Text="Довідник автомобілів"
+                    Text="Довідник автомобілів - тт"
                     TextColor="{StaticResource Key=Black}"
                     VerticalOptions="Center" />
             </Grid>

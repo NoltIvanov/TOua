@@ -13,6 +13,26 @@
             <Color x:Key="White">#ffffff</Color>
             <Color x:Key="Red">#ff5252</Color>
 
+            <!--  FONTS  -->
+            <OnPlatform
+                x:Key="OpenSansRegular"
+                x:TypeArguments="x:String"
+                Android="OpenSans-Regular.ttf#OpenSans"
+                iOS="OpenSans-Regular" />
+
+            <OnPlatform
+                x:Key="OpenSansItalic"
+                x:TypeArguments="x:String"
+                Android="OpenSans-Italic.ttf#OpenSans"
+                iOS="OpenSans-Italic" />
+
+            <OnPlatform
+                x:Key="OpenSansBold"
+                x:TypeArguments="x:String"
+                Android="OpenSans-Bold.ttf#OpenSans"
+                iOS="OpenSans-Bold" />
+
+            <!--  SIZES  -->
             <OnPlatform
                 x:Key="PageTitles"
                 x:TypeArguments="x:Double"
@@ -45,6 +65,15 @@
                 FalseObject="{StaticResource Key=Red}"
                 TrueObject="{StaticResource Key=Gray}" />
             <converters:FirstItemFromCollectionConverter x:Key="First_item_from_collection_converter" />
+
+            <!--  IMPLICIT STYLES  -->
+            <Style
+                ApplyToDerivedTypes="True"
+                CanCascade="True"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource PageTitles}" />
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
