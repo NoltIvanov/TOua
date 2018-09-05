@@ -11,8 +11,11 @@
 
   <ItemGroup>
     <Compile Remove="ViewModels\Test\**" />
+    <Compile Remove="Views\Test\**" />
     <EmbeddedResource Remove="ViewModels\Test\**" />
+    <EmbeddedResource Remove="Views\Test\**" />
     <None Remove="ViewModels\Test\**" />
+    <None Remove="Views\Test\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,5 +49,21 @@
     <EmbeddedResource Update="Controls\Indicator.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\ActionBars\CommonActionBarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Base\ContentPageBaseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FoundCarsInfoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\CarInfoDetailsPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Factories\" />
   </ItemGroup>
 </Project>

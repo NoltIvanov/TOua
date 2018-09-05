@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using TOua.ViewModels.ActionBars;
 using TransportAndOwner.ViewModels.Base;
 using Xamarin.Forms.Internals;
 
@@ -11,9 +12,8 @@ namespace TOua.ViewModels.Base {
         private readonly Dictionary<Guid, bool> _busySequence = new Dictionary<Guid, bool>();
 
         public ContentPageBaseViewModel() {
-            //    ActionBarViewModel = DependencyLocator.Resolve<ModeActionBarViewModel>();
-            //((ModeActionBarViewModel)ActionBarViewModel).IsModesAvailable = false;
-            //ActionBarViewModel.InitializeAsync(this);
+            ActionBarViewModel = DependencyLocator.Resolve<CommonActionBarViewModel>();
+            ActionBarViewModel.InitializeAsync(this);
         }
 
         private ObservableCollection<PopupBaseViewModel> _popups = new ObservableCollection<PopupBaseViewModel>();
@@ -28,12 +28,6 @@ namespace TOua.ViewModels.Base {
             protected set => SetProperty<ICommand>(ref _refreshCommand, value);
         }
 
-        private string _appBackgroundImage;
-        public string AppBackgroundImage {
-            get => _appBackgroundImage;
-            protected set => SetProperty<string>(ref _appBackgroundImage, value);
-        }
-
         private bool _isPullToRefreshEnabled;
         public bool IsPullToRefreshEnabled {
             get => _isPullToRefreshEnabled;
@@ -44,12 +38,6 @@ namespace TOua.ViewModels.Base {
         public bool IsRefreshing {
             get => _isRefreshing;
             set => SetProperty<bool>(ref _isRefreshing, value);
-        }
-
-        private bool _isMenuVisible;
-        public bool IsMenuVisible {
-            get => _isMenuVisible;
-            set => SetProperty<bool>(ref _isMenuVisible, value);
         }
 
         private bool _isPopupsVisible;

@@ -2,6 +2,10 @@
 using System;
 using System.Globalization;
 using System.Reflection;
+using TOua.Factories.Validation;
+using TOua.ViewModels;
+using TOua.ViewModels.ActionBars;
+using TOua.ViewModels.Popups;
 using TransportAndOwner.Services.Dialog;
 using TransportAndOwner.Services.Navigation;
 using Xamarin.Forms;
@@ -27,10 +31,16 @@ namespace TransportAndOwner.ViewModels.Base {
 
             // View models.
             builder.RegisterType<MainViewModel>();
+            builder.RegisterType<CarInfoDetailsPopupViewModel>();
+            builder.RegisterType<CommonActionBarViewModel>();
+            builder.RegisterType<FoundCarsInfoViewModel>();
 
             // Services.
             builder.RegisterType<NavigationService>().As<INavigationService>();
             builder.RegisterType<DialogService>().As<IDialogService>();
+
+            // Factories.
+            builder.RegisterType<ValidationObjectFactory>().As<IValidationObjectFactory>();
 
             if (_container != null) {
                 _container.Dispose();

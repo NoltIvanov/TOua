@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<viewBase:ContentPageBaseView
+    x:Class="TOua.Views.FoundCarsInfoView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:actionBars="clr-namespace:TOua.Views.ActionBars"
+    xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
+    xmlns:viewBase="clr-namespace:TOua.Views.Base"
+    dependency:DependencyLocator.AutoWireViewModel="True">
+    <viewBase:ContentPageBaseView.MainContent>
+        <Grid>
+            <Label
+                HorizontalOptions="Center"
+                Text="{Binding Path=SearchValue}"
+                VerticalOptions="Center" />
+
+            <Button
+                Command="{Binding Path=TestPopupViewModel.ShowPopupCommand}"
+                CommandParameter="Car info details parameter"
+                HorizontalOptions="Center"
+                Text="Hello"
+                VerticalOptions="End" />
+        </Grid>
+    </viewBase:ContentPageBaseView.MainContent>
+
+    <viewBase:ContentPageBaseView.ActionBar>
+        <actionBars:CommonActionBarView />
+    </viewBase:ContentPageBaseView.ActionBar>
+</viewBase:ContentPageBaseView>

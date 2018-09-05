@@ -2,17 +2,49 @@
 <Application
     x:Class="TOua.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:TOua.Helpers.ValueConverters">
     <Application.Resources>
         <ResourceDictionary>
             <!--  COLORS  -->
-            <Color x:Key="WhiteColor">#ffffff</Color>
-            <Color x:Key="BlackColor">#000000</Color>
-            <Color x:Key="BackgroundColor">#F4F6FA</Color>
-            <Color x:Key="AccentColor">#00857D</Color>
-            <Color x:Key="LightGreenColor">#83D01B</Color>
-            <Color x:Key="GreenColor">#00A69C</Color>
+            <Color x:Key="Blue">#0064c9</Color>
+            <Color x:Key="Black">#2c2c2c</Color>
+            <Color x:Key="Gray">#e1e1e1</Color>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="Red">#ff5252</Color>
 
+            <OnPlatform
+                x:Key="PageTitles"
+                x:TypeArguments="x:Double"
+                Android="20"
+                iOS="20" />
+            <OnPlatform
+                x:Key="ParagraphText"
+                x:TypeArguments="x:Double"
+                Android="14"
+                iOS="14" />
+            <OnPlatform
+                x:Key="TextInputs"
+                x:TypeArguments="x:Double"
+                Android="16"
+                iOS="16" />
+            <OnPlatform
+                x:Key="HintText"
+                x:TypeArguments="x:Double"
+                Android="11"
+                iOS="11" />
+
+            <converters:BoolToGenericObjectConverter
+                x:Key="Reverse_bool_converter"
+                x:TypeArguments="x:Boolean"
+                FalseObject="True"
+                TrueObject="False" />
+            <converters:BoolToGenericObjectConverter
+                x:Key="Is_valid_to_color_converter"
+                x:TypeArguments="Color"
+                FalseObject="{StaticResource Key=Red}"
+                TrueObject="{StaticResource Key=Gray}" />
+            <converters:FirstItemFromCollectionConverter x:Key="First_item_from_collection_converter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,34 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<viewBase:ContentPageBaseView
     x:Class="TransportAndOwner.Views.MainView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
-    xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    dependency:DependencyLocator.AutoWireViewModel="True"
-    ios:Page.UseSafeArea="True"
-    NavigationPage.HasNavigationBar="False">
+    xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:viewBase="clr-namespace:TOua.Views.Base"
+    dependency:DependencyLocator.AutoWireViewModel="True">
 
-    <Grid>
+    <viewBase:ContentPageBaseView.MainContent>
+        <Grid Padding="20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Label
-            HorizontalOptions="Center"
-            Text="Main view in developing"
-            VerticalOptions="Center" />
+            <!--  Header scope  -->
+            <Grid
+                Grid.Row="0"
+                HorizontalOptions="Center"
+                RowSpacing="20"
+                VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-        <!--<controls:ButtonCompounded
-            BorderColor="Black"
-            BorderThickness="4"
-            ButtonBackgroundColor="LightSeaGreen"
-            Command="{Binding Path=TestCommand}"
-            CornerRadius="9"
-            FontSize="17"
-            HorizontalOptions="Center"
-            Image="{extensions:ImageResource Source=TOua.Resources.Images.ic_arrow_right.png}"
-            Text="Hello"
-            TextColor="Yellow"
-            VerticalOptions="Center" />-->
-    </Grid>
-</ContentPage>
+                <!--  Logo  -->
+                <ffimage:CachedImage
+                    Grid.Row="0"
+                    BackgroundColor="{StaticResource Key=Blue}"
+                    HeightRequest="86"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="86" />
+
+                <!--  Main header  -->
+                <Label
+                    Grid.Row="1"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Довідник автомобілів"
+                    TextColor="{StaticResource Key=Black}"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <!--  Inputs scope  -->
+            <Grid
+                Grid.Row="1"
+                RowSpacing="20"
+                VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  Car id entry  -->
+                <StackLayout Spacing="3">
+                    <controls:ExtendedContentView
+                        Grid.Row="0"
+                        Padding="8"
+                        BorderColor="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Is_valid_to_color_converter}}"
+                        BorderThickness="1">
+                        <controls:EntryExtended
+                            FontSize="{StaticResource Key=TextInputs}"
+                            HorizontalOptions="Center"
+                            Placeholder="Введіть щось?"
+                            Text="{Binding Path=CarId.Value, Mode=TwoWay}"
+                            VerticalOptions="Center" />
+                    </controls:ExtendedContentView>
+
+                    <Label
+                        FontSize="{StaticResource Key=HintText}"
+                        IsVisible="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Reverse_bool_converter}}"
+                        Text="{Binding Path=CarId.Errors, Converter={StaticResource Key=First_item_from_collection_converter}}"
+                        TextColor="{StaticResource Key=Red}" />
+                </StackLayout>
+
+                <!--  Search button  -->
+                <controls:ExtendedContentView
+                    Grid.Row="1"
+                    Padding="8"
+                    BackgroundColor="{StaticResource Key=Blue}"
+                    CornerRadius="3">
+                    <controls:ExtendedContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=FindCarInfoCommand}" />
+                    </controls:ExtendedContentView.GestureRecognizers>
+                    <Label
+                        FontSize="{StaticResource Key=TextInputs}"
+                        HorizontalOptions="Center"
+                        Text="Пошук"
+                        TextColor="{StaticResource Key=White}"
+                        VerticalOptions="Center" />
+                </controls:ExtendedContentView>
+            </Grid>
+        </Grid>
+    </viewBase:ContentPageBaseView.MainContent>
+</viewBase:ContentPageBaseView>

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TOua.Controls.Popups;
 using Xamarin.Forms;
 
 namespace TOua.ViewModels.Base {
-    public abstract class PopupBaseViewModel : NestedViewModel {
+    public abstract class PopupBaseViewModel : NestedViewModel, IPopupContext {
 
         private bool _isPopupVisible;
         public bool IsPopupVisible {
@@ -20,7 +21,7 @@ namespace TOua.ViewModels.Base {
             UpdatePopupScopeVisibility(true);
             IsPopupVisible = true;
         });
-
+        
         public ICommand ClosePopupCommand => new Command(() => {
             UpdatePopupScopeVisibility(false);
         });
