@@ -79,10 +79,7 @@ namespace TOua.ViewModels {
             SetBusy(busyKey, true);
 
             try {
-                await Task.Delay(900);
-                FoundCars = new List<CarinfoDTO>() { new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO() };
-
-                await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+                FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
             }
             catch (OperationCanceledException) { }
             catch (ObjectDisposedException) { }

@@ -41,8 +41,6 @@ namespace TOua.Services.RequestProvider {
 
                 string json = httpResponseMessage.Content.ReadAsStringAsync().Result;
 
-                Debugger.Break();
-
                 responseToReturn = await Task.Run(() => JsonConvert.DeserializeObject<TResponse>(json));
 
                 return responseToReturn;

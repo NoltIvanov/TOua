@@ -80,10 +80,8 @@
                             BorderColor="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Is_valid_to_color_converter}}"
                             BorderThickness="1"
                             CornerRadius="7">
-                            <ContentView >
+                            <ContentView>
                                 <controls:EntryExtended
-                                    x:Name="_todo"
-                                    BackgroundColor="{StaticResource Key=White}"
                                     FontSize="{StaticResource Key=TextInputs}"
                                     Placeholder="Введіть щось?"
                                     Text="{Binding Path=CarId.Value, Mode=TwoWay}"
