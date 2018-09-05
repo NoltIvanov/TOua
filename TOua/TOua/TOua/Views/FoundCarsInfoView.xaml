@@ -48,7 +48,10 @@
 
                 <ScrollView Grid.Row="1" Padding="20,0">
                     <!--  Main content (found results scope)  -->
-                    <stacklist:StackList ItemsSource="{Binding Path=FoundCars}" Spacing="9">
+                    <stacklist:StackList
+                        x:Name="_carsInfoList_StackList"
+                        ItemsSource="{Binding Path=FoundCars}"
+                        Spacing="9">
                         <stacklist:StackList.ItemTemplate>
                             <DataTemplate>
                                 <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
@@ -56,6 +59,9 @@
                                         Padding="20,25"
                                         BackgroundColor="{StaticResource Key=White}"
                                         CornerRadius="3">
+                                        <controls:ExtendedContentView.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
+                                        </controls:ExtendedContentView.GestureRecognizers>
                                         <StackLayout Spacing="9">
                                             <Label Text="790" />
                                             <Label Text="Text binding in developing" />

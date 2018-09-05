@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using TOua.ViewModels.Base;
 using TOua.ViewModels.Popups;
 using TransportAndOwner.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
 
         private CancellationTokenSource _getCarsCancellationTokenSource = new CancellationTokenSource();
+
+        public ICommand ViewCarInfoDetailsCommand => new Command((object param) => {
+            TestPopupViewModel.ViewCarInfoDetails(param);
+        });
 
         private string _targetCarId;
         public string TargetCarId {

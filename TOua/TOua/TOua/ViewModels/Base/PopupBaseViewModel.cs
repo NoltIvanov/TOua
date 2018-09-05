@@ -20,10 +20,14 @@ namespace TOua.ViewModels.Base {
         public ICommand ShowPopupCommand => new Command(() => {
             UpdatePopupScopeVisibility(true);
             IsPopupVisible = true;
+
+            OnShowPopup();
         });
-        
+
         public ICommand ClosePopupCommand => new Command(() => {
             UpdatePopupScopeVisibility(false);
+
+            OnClosePopup();
         });
 
         public abstract Type RelativeViewType { get; }
@@ -39,5 +43,9 @@ namespace TOua.ViewModels.Base {
         }
 
         protected virtual void OnIsPopupVisible() { }
+
+        protected virtual void OnShowPopup() { }
+
+        protected virtual void OnClosePopup() { }
     }
 }
