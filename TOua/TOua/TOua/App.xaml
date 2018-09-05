@@ -9,7 +9,7 @@
             <!--  COLORS  -->
             <Color x:Key="Blue">#0064c9</Color>
             <Color x:Key="Black">#2c2c2c</Color>
-            <Color x:Key="Gray">#e1e1e1</Color>
+            <Color x:Key="Gray">#cecece</Color>
             <Color x:Key="White">#fbfbfb</Color>
             <Color x:Key="Red">#ff5252</Color>
 

@@ -82,6 +82,7 @@
                             CornerRadius="7">
                             <ContentView>
                                 <controls:EntryExtended
+                                    FontFamily="{StaticResource Key=OpenSansRegular}"
                                     FontSize="{StaticResource Key=TextInputs}"
                                     Placeholder="Введіть щось?"
                                     Text="{Binding Path=CarId.Value, Mode=TwoWay}"
@@ -89,7 +90,8 @@
                             </ContentView>
                         </controls:ExtendedContentView>
 
-                        <Label
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansRegular}"
                             FontSize="{StaticResource Key=HintText}"
                             IsVisible="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Reverse_bool_converter}}"
                             Text="{Binding Path=CarId.Errors, Converter={StaticResource Key=First_item_from_collection_converter}}"
@@ -99,13 +101,15 @@
                     <!--  Search button  -->
                     <controls:ExtendedContentView
                         Grid.Row="1"
-                        Padding="8"
+                        Padding="8,12"
                         BackgroundColor="{StaticResource Key=Blue}"
-                        CornerRadius="3">
+                        CornerRadius="7">
                         <controls:ExtendedContentView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Path=FindCarInfoCommand}" />
                         </controls:ExtendedContentView.GestureRecognizers>
-                        <Label
+
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansBold}"
                             FontSize="{StaticResource Key=TextInputs}"
                             HorizontalOptions="Center"
                             Text="Пошук"
