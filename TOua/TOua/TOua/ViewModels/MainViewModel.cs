@@ -22,7 +22,9 @@ namespace TransportAndOwner.ViewModels {
 
         public ICommand FindCarInfoCommand => new Command(async () => {
             if (ValidateForm()) {
-                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>("Car id parameter");
+                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value);
+
+                ResetValidationObjects();
             }
         });
 
