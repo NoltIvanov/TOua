@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TransportAndOwner.Views
-{
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainView : ContentPage
-	{
-		public MainView ()
-		{
-			InitializeComponent ();
-		}
-	}
+namespace TransportAndOwner.Views {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MainView : ContentPage {
+        public MainView() {
+            InitializeComponent();
+        }
+    }
 }

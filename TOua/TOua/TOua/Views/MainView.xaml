@@ -5,23 +5,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
+    xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     dependency:DependencyLocator.AutoWireViewModel="True"
     ios:Page.UseSafeArea="True"
     NavigationPage.HasNavigationBar="False">
 
-    <StackLayout BackgroundColor="Yellow">
-        <Label
-            HorizontalOptions="CenterAndExpand"
-            Text="{Binding Name}"
-            VerticalOptions="CenterAndExpand">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TestCommand}" NumberOfTapsRequired="1" />
-            </Label.GestureRecognizers>
-        </Label>
+    <Grid>
 
-        <controls:EntryExtended />
 
-        <controls:Indicator />
-    </StackLayout>
+        <!--<controls:ButtonCompounded
+            BorderColor="Black"
+            BorderThickness="4"
+            ButtonBackgroundColor="LightSeaGreen"
+            Command="{Binding Path=TestCommand}"
+            CornerRadius="9"
+            FontSize="17"
+            HorizontalOptions="Center"
+            Image="{extensions:ImageResource Source=TOua.Resources.Images.ic_arrow_right.png}"
+            Text="Hello"
+            TextColor="Yellow"
+            VerticalOptions="Center" />-->
+    </Grid>
 </ContentPage>

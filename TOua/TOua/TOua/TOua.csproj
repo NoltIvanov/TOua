@@ -10,6 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controls\ButtonCompounded.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Controls\ButtonCompounded.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\ic_arrow_left.png" />
+    <None Remove="Resources\Images\ic_arrow_right.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\ic_arrow_left.png" />
+    <EmbeddedResource Include="Resources\Images\ic_arrow_right.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.3.840" />
