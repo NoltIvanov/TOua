@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TOua.Models.DTOs;
 using TOua.Services.CarsInfo;
-using TOua.ViewModels.ActionBars;
 using TOua.ViewModels.Base;
 using TOua.ViewModels.Popups;
 using TransportAndOwner.ViewModels.Base;
@@ -22,7 +22,7 @@ namespace TOua.ViewModels {
         }
 
         public ICommand ViewCarInfoDetailsCommand => new Command((object param) => {
-            TestPopupViewModel.ViewCarInfoDetails(param);
+            TestPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
         });
 
         private string _targetCarId;
@@ -31,10 +31,10 @@ namespace TOua.ViewModels {
             private set => SetProperty<string>(ref _targetCarId, value);
         }
 
-        private List<object> _foundCars = new List<object>();
-        public List<object> FoundCars {
+        private List<CarinfoDTO> _foundCars = new List<CarinfoDTO>();
+        public List<CarinfoDTO> FoundCars {
             get => _foundCars;
-            private set => SetProperty<List<object>>(ref _foundCars, value);
+            private set => SetProperty<List<CarinfoDTO>>(ref _foundCars, value);
         }
 
         private CarInfoDetailsPopupViewModel _testPopupViewModel;
@@ -80,7 +80,7 @@ namespace TOua.ViewModels {
 
             try {
                 await Task.Delay(900);
-                FoundCars = new List<object>() { new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object(), new object() };
+                FoundCars = new List<CarinfoDTO>() { new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO(), new CarinfoDTO() };
 
                 await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
             }

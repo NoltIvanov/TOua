@@ -103,6 +103,7 @@
     <BundleResource Include="Resources\Fonts\OpenSans-Bold.ttf" />
     <BundleResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
     <BundleResource Include="Resources\Fonts\OpenSans-Italic.ttf" />
+    <BundleResource Include="Resources\Fonts\OpenSans-Semibold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

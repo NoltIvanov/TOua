@@ -10,7 +10,7 @@
             <Color x:Key="Blue">#0064c9</Color>
             <Color x:Key="Black">#2c2c2c</Color>
             <Color x:Key="Gray">#e1e1e1</Color>
-            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="White">#fbfbfb</Color>
             <Color x:Key="Red">#ff5252</Color>
 
             <!--  FONTS  -->
@@ -32,27 +32,33 @@
                 Android="OpenSans-Bold.ttf#OpenSans"
                 iOS="OpenSans-Bold" />
 
+            <OnPlatform
+                x:Key="OpenSansSemiBold"
+                x:TypeArguments="x:String"
+                Android="OpenSans-Semibold.ttf#OpenSans"
+                iOS="OpenSans-Semibold" />
+
             <!--  SIZES  -->
             <OnPlatform
                 x:Key="PageTitles"
                 x:TypeArguments="x:Double"
-                Android="20"
-                iOS="20" />
+                Android="22"
+                iOS="22" />
             <OnPlatform
                 x:Key="ParagraphText"
-                x:TypeArguments="x:Double"
-                Android="14"
-                iOS="14" />
-            <OnPlatform
-                x:Key="TextInputs"
                 x:TypeArguments="x:Double"
                 Android="16"
                 iOS="16" />
             <OnPlatform
+                x:Key="TextInputs"
+                x:TypeArguments="x:Double"
+                Android="18"
+                iOS="18" />
+            <OnPlatform
                 x:Key="HintText"
                 x:TypeArguments="x:Double"
-                Android="11"
-                iOS="11" />
+                Android="13"
+                iOS="13" />
 
             <converters:BoolToGenericObjectConverter
                 x:Key="Reverse_bool_converter"

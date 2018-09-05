@@ -6,6 +6,8 @@ namespace TransportAndOwner.Views {
     public partial class MainView : ContentPageBaseView {
         public MainView() {
             InitializeComponent();
+            //_todo.BackgroundColor = Xamarin.Forms.Color.FromHex("#fbfbfb");
+
         }
     }
 }

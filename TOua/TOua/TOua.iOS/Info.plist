@@ -60,6 +60,7 @@
       <string>Fonts/OpenSans-Bold.ttf</string>
       <string>Fonts/OpenSans-Italic.ttf</string>
       <string>Fonts/OpenSans-Regular.ttf</string>
+      <string>Fonts/OpenSans-Semibold.ttf</string>
     </array>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>

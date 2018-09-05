@@ -1,8 +1,11 @@
 ﻿using Android.Content;
+using Android.Graphics;
 using Android.Views;
 using System.ComponentModel;
 using TOua.Controls;
 using TOua.Droid.Renderers;
+using TOua.Droid.Renderers.Helpers;
+using TOua.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -73,6 +76,9 @@ namespace TOua.Droid.Renderers {
             _renderer = new BorderRenderer();
 
             Control.Background = _renderer.GetBorderBackground(entryEx.BorderColor, entryEx.BackgroundColor, entryEx.BorderWidth, entryEx.BorderRadius);
+            //Control.Background = new Android.Graphics.Drawables.ColorDrawable(BaseSingleton<ValuesResolver>.Instance.ResolveNativeColor(entryEx.BackgroundColor));
+            //Control.Background.SetColorFilter(BaseSingleton<ValuesResolver>.Instance.ResolveNativeColor(entryEx.BackgroundColor), PorterDuff.Mode.SrcAtop);
+            //Control.Background.SetColorFilter(Android.Graphics.Color.ParseColor("#fefefe"), PorterDuff.Mode.SrcAtop);
         }
 
         private void UpdatePadding(EntryExtended entryEx) {
