@@ -18,15 +18,16 @@ namespace TOua {
             DependencyLocator.RegisterDependencies();
         }
 
-        private Task InitNavigation() {
-            var navigationService = DependencyLocator.Resolve<INavigationService>();
-            return navigationService.InitializeAsync();
+        private void InitNavigation() {
+            INavigationService navigationService = DependencyLocator.Resolve<INavigationService>();
+
+            navigationService.Initialize();
         }
 
-        protected override async void OnStart() {
+        protected override void OnStart() {
             base.OnStart();
 
-            await InitNavigation();
+            InitNavigation();
 
             base.OnResume();
         }

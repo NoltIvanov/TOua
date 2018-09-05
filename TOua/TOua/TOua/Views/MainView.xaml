@@ -13,6 +13,10 @@
 
     <Grid>
 
+        <Label
+            HorizontalOptions="Center"
+            Text="Main view in developing"
+            VerticalOptions="Center" />
 
         <!--<controls:ButtonCompounded
             BorderColor="Black"

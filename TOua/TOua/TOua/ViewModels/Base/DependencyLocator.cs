@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Reflection;
 using TransportAndOwner.Services.Dialog;
 using TransportAndOwner.Services.Navigation;
-using TransportAndOwner.ViewModels.Test;
 using Xamarin.Forms;
 
 namespace TransportAndOwner.ViewModels.Base {
@@ -28,7 +27,6 @@ namespace TransportAndOwner.ViewModels.Base {
 
             // View models.
             builder.RegisterType<MainViewModel>();
-            builder.RegisterType<TestViewModel>();
 
             // Services.
             builder.RegisterType<NavigationService>().As<INavigationService>();

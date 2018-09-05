@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\Test\**" />
+    <EmbeddedResource Remove="ViewModels\Test\**" />
+    <None Remove="ViewModels\Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controls\ButtonCompounded.xaml.cs" />
   </ItemGroup>
 
