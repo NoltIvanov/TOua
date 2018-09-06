@@ -166,7 +166,7 @@
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.NRegNew}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Реєстраційний номер транспортного засобу" />
+                    <Label Style="{StaticResource titleLabel}" Text="Реєстраційний номер" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
