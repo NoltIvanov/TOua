@@ -11,7 +11,7 @@ namespace TOua.Helpers.ValueConverters {
             if (value != null && value is string targetValue) {
                 if (targetValue.Length > 4) {
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(0, 2) });
-                    formattedString.Spans.Add(new Span() { Text = targetValue.Substring(2, targetValue.Length - 4) });
+                    formattedString.Spans.Add(new Span() { Text = string.Format(" {0} ", targetValue.Substring(2, targetValue.Length - 4)) });
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(targetValue.Length - 2, 2) });
                 }
                 else {

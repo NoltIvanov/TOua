@@ -14,7 +14,7 @@ namespace TOua.Controls {
             nameof(LetterSpacing),
             typeof(float),
             typeof(LabelExtended),
-            defaultValue: .1F);
+            defaultValue: .05F);
 
         public float LineHeight {
             get => (float)GetValue(LineHeightProperty);

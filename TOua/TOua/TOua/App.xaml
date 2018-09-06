@@ -10,7 +10,7 @@
             <Color x:Key="Blue">#0064c9</Color>
             <Color x:Key="Black">#2c2c2c</Color>
             <Color x:Key="Gray">#cecece</Color>
-            <Color x:Key="White">#fbfbfb</Color>
+            <Color x:Key="White">#fefefe</Color>
             <Color x:Key="Red">#ff5252</Color>
 
             <!--  FONTS  -->
@@ -39,6 +39,11 @@
                 iOS="OpenSans-Semibold" />
 
             <!--  SIZES  -->
+            <OnPlatform
+                x:Key="BigTitles"
+                x:TypeArguments="x:Double"
+                Android="28"
+                iOS="28" />
             <OnPlatform
                 x:Key="PageTitles"
                 x:TypeArguments="x:Double"

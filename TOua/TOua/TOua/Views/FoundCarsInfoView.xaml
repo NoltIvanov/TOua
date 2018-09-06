@@ -30,7 +30,7 @@
                 </Grid.RowDefinitions>
 
                 <!--  Pseudo action bar  -->
-                <Grid Grid.Row="0" Padding="20">
+                <Grid Grid.Row="0" Padding="20,25">
                     <ContentView
                         HeightRequest="37"
                         HorizontalOptions="Start"
@@ -42,8 +42,9 @@
                         <ffimage:CachedImage BackgroundColor="Black" />
                     </ContentView>
 
-                    <Label
-                        FontSize="{StaticResource Key=PageTitles}"
+                    <controls:LabelExtended
+                        FontFamily="{StaticResource Key=OpenSansBold}"
+                        FontSize="{StaticResource Key=BigTitles}"
                         FormattedText="{Binding Path=TargetCarId, Converter={StaticResource Key=CarId_string_to_formated_string_converter}}"
                         HorizontalOptions="Center"
                         TextColor="{StaticResource Key=White}"
