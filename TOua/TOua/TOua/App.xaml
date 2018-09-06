@@ -11,6 +11,7 @@
             <Color x:Key="DeepBlue">#042e6f</Color>
             <Color x:Key="Black">#2c2c2c</Color>
             <Color x:Key="Gray">#cecece</Color>
+            <Color x:Key="LightGray">#b1b0b0</Color>
             <Color x:Key="White">#fefefe</Color>
             <Color x:Key="Red">#ff5252</Color>
 
@@ -85,7 +86,7 @@
                 CanCascade="True"
                 TargetType="Label">
                 <Setter Property="FontSize" Value="{StaticResource PageTitles}" />
-                <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
