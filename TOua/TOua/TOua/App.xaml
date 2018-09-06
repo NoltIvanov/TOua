@@ -10,8 +10,7 @@
             <Color x:Key="Blue">#0064c9</Color>
             <Color x:Key="Black">#2c2c2c</Color>
             <Color x:Key="Gray">#cecece</Color>
-            <Color x:Key="LightGray">#b1b0b0</Color>
-            <Color x:Key="White">#fbfbfb</Color>
+            <Color x:Key="White">#fefefe</Color>
             <Color x:Key="Red">#ff5252</Color>
 
             <!--  FONTS  -->
@@ -40,6 +39,11 @@
                 iOS="OpenSans-Semibold" />
 
             <!--  SIZES  -->
+            <OnPlatform
+                x:Key="BigTitles"
+                x:TypeArguments="x:Double"
+                Android="28"
+                iOS="28" />
             <OnPlatform
                 x:Key="PageTitles"
                 x:TypeArguments="x:Double"
@@ -72,6 +76,7 @@
                 FalseObject="{StaticResource Key=Red}"
                 TrueObject="{StaticResource Key=Gray}" />
             <converters:FirstItemFromCollectionConverter x:Key="First_item_from_collection_converter" />
+            <converters:CarIdStringToFormatedStringConverter x:Key="CarId_string_to_formated_string_converter" />
 
             <!--  IMPLICIT STYLES  -->
             <Style
@@ -79,7 +84,7 @@
                 CanCascade="True"
                 TargetType="Label">
                 <Setter Property="FontSize" Value="{StaticResource PageTitles}" />
-                <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

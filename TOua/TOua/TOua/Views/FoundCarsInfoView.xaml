@@ -5,11 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
+    xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:stacklist="clr-namespace:TOua.Controls.Stacklist"
     xmlns:viewBase="clr-namespace:TOua.Views.Base"
     dependency:DependencyLocator.AutoWireViewModel="True"
-    BackgroundColor="WhiteSmoke">
+    BackgroundColor="{StaticResource Key=White}">
     <viewBase:ContentPageBaseView.MainContent>
 
         <Grid>
@@ -30,7 +32,19 @@
                 </Grid.RowDefinitions>
 
                 <!--  Pseudo action bar  -->
-                <Grid Grid.Row="0" Padding="20,0">
+                <Grid Grid.Row="0" Padding="20,25">
+
+                    <ContentView Padding="40,0">
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansBold}"
+                            FontSize="{StaticResource Key=BigTitles}"
+                            FormattedText="{Binding Path=TargetCarId, Converter={StaticResource Key=CarId_string_to_formated_string_converter}}"
+                            HorizontalOptions="Center"
+                            LineBreakMode="TailTruncation"
+                            TextColor="{StaticResource Key=White}"
+                            VerticalOptions="Center" />
+                    </ContentView>
+
                     <ContentView
                         HeightRequest="37"
                         HorizontalOptions="Start"
@@ -39,42 +53,51 @@
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
                         </ContentView.GestureRecognizers>
-                        <ffimage:CachedImage BackgroundColor="Black" />
+                        <ffimagesvg:SvgCachedImage
+                            HorizontalOptions="Center"
+                            Rotation="-180"
+                            Scale="1.5"
+                            Source="resource://TOua.Resources.Images.ic_arrow_right.svg"
+                            VerticalOptions="Center" />
                     </ContentView>
-
-                    <Label
-                        FontSize="{StaticResource Key=PageTitles}"
-                        HorizontalOptions="Center"
-                        Text="{Binding Path=TargetCarId}"
-                        TextColor="{StaticResource Key=White}"
-                        VerticalOptions="Center" />
                 </Grid>
 
                 <ScrollView Grid.Row="1" Padding="20,0">
-                    <!--  Main content (found results scope)  -->
-                    <stacklist:StackList
-                        x:Name="_carsInfoList_StackList"
-                        ItemsSource="{Binding Path=FoundCars}"
-                        Spacing="9">
-                        <stacklist:StackList.ItemTemplate>
-                            <DataTemplate>
-                                <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
-                                    <controls:ExtendedContentView
-                                        Padding="20,25"
-                                        BackgroundColor="{StaticResource Key=White}"
-                                        CornerRadius="3">
-                                        <controls:ExtendedContentView.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
-                                        </controls:ExtendedContentView.GestureRecognizers>
-                                        <StackLayout Spacing="9">
-                                            <Label Text="790" />
-                                            <Label Text="Text binding in developing" />
-                                        </StackLayout>
-                                    </controls:ExtendedContentView>
-                                </stacklist:CommonStackListItem>
-                            </DataTemplate>
-                        </stacklist:StackList.ItemTemplate>
-                    </stacklist:StackList>
+                    <Grid>
+                        <!--  Inform label  -->
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansRegular}"
+                            FontSize="{StaticResource Key=TextInputs}"
+                            HorizontalOptions="Center"
+                            Text="{Binding Path=InformText}"
+                            TextColor="{StaticResource Key=Black}"
+                            VerticalOptions="Center" />
+
+                        <!--  Main content (found results scope)  -->
+                        <stacklist:StackList
+                            x:Name="_carsInfoList_StackList"
+                            ItemsSource="{Binding Path=FoundCars}"
+                            Spacing="9">
+                            <stacklist:StackList.ItemTemplate>
+                                <DataTemplate>
+                                    <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
+                                        <controls:ExtendedContentView
+                                            Padding="20,25"
+                                            BackgroundColor="{StaticResource Key=White}"
+                                            CornerRadius="3">
+                                            <controls:ExtendedContentView.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
+                                            </controls:ExtendedContentView.GestureRecognizers>
+                                            <StackLayout Spacing="9">
+                                                <Label Text="790" />
+                                                <Label Text="Text binding in developing" />
+                                            </StackLayout>
+                                        </controls:ExtendedContentView>
+                                    </stacklist:CommonStackListItem>
+                                </DataTemplate>
+                            </stacklist:StackList.ItemTemplate>
+                        </stacklist:StackList>
+                    </Grid>
                 </ScrollView>
             </Grid>
         </Grid>
