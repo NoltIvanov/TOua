@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <!--Colors-->
+  <!--Colors -->
   <color name="main_splashscreen_background_color">#0064c9</color>
   <color name="white">#FFFFFF</color>
   <color name="launcher_background">#FFFFFF</color>

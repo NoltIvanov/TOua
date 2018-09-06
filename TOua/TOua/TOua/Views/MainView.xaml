@@ -58,6 +58,7 @@
                         Grid.Row="1"
                         FontFamily="{StaticResource Key=OpenSansSemiBold}"
                         HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
                         LetterSpacing=".025"
                         Text="Державний транспортний реєстр"
                         TextColor="{StaticResource Key=Black}"

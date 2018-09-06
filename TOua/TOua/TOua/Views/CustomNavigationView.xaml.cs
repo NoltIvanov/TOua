@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using TOua.ViewModels;
 using TransportAndOwner.ViewModels.Base;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,12 +8,20 @@ namespace TransportAndOwner.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomNavigationView : NavigationPage {
 
-        public CustomNavigationView() : base()   {
+        public static readonly string ON_CUSTOM_NAVIGATION_VIEW_APPEARING = "on_custom_navigation_view_appearing";
+
+        public CustomNavigationView() : base() {
             InitializeComponent();
         }
 
         public CustomNavigationView(Page root) : base(root) {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing() {
+            base.OnAppearing();
+
+            MessagingCenter.Send<object>(this, ON_CUSTOM_NAVIGATION_VIEW_APPEARING);
         }
 
         protected override bool OnBackButtonPressed() {
@@ -32,7 +41,13 @@ namespace TransportAndOwner.Views {
                 lastPageInTheStack.BindingContext != null &&
                 lastPageInTheStack.BindingContext is ViewModelBase &&
                 (lastPageInTheStack.BindingContext as ViewModelBase).BackCommand != null) {
-                ((ViewModelBase)lastPageInTheStack.BindingContext).BackCommand.Execute(null);
+
+                if (lastPageInTheStack.BindingContext is FoundCarsInfoViewModel foundCarsInfoViewModel && foundCarsInfoViewModel.CarInfoDetailsPopupViewModel.IsPopupVisible) {
+                    foundCarsInfoViewModel.CarInfoDetailsPopupViewModel.ClosePopupCommand.Execute(null);
+                }
+                else {
+                    ((ViewModelBase)lastPageInTheStack.BindingContext).BackCommand.Execute(null);
+                }
 
                 return true;
             }

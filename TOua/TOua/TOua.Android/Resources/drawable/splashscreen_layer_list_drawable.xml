@@ -9,9 +9,9 @@
     </shape>
   </item>
 
-  <item>
-    <bitmap android:src="@drawable/todo"
-      android:gravity="center" 
-            />
+  <item android:top="155dp">
+    <bitmap android:src="@drawable/splesh_logo"
+      android:gravity="top">
+    </bitmap>
   </item>
 </layer-list>
