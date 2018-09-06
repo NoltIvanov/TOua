@@ -16,7 +16,7 @@
 
             <!--  Background image  -->
             <ffimage:CachedImage
-                AbsoluteLayout.LayoutBounds="1,1,1,1"
+                AbsoluteLayout.LayoutBounds="1,1,1,.5"
                 AbsoluteLayout.LayoutFlags="All"
                 Aspect="Fill"
                 Opacity=".1"

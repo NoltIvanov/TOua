@@ -71,6 +71,7 @@
                 FalseObject="{StaticResource Key=Red}"
                 TrueObject="{StaticResource Key=Gray}" />
             <converters:FirstItemFromCollectionConverter x:Key="First_item_from_collection_converter" />
+            <converters:CarIdStringToFormatedStringConverter x:Key="CarId_string_to_formated_string_converter" />
 
             <!--  IMPLICIT STYLES  -->
             <Style

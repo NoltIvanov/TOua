@@ -51,6 +51,10 @@ namespace TransportAndOwner.ViewModels {
         private void ResetValidationObjects() {
             CarId = _validationObjectFactory.GetValidatableObject<string>();
             CarId.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = _CAR_ID_IS_REQUIRED_ERROR_MESSAGE });
+
+#if DEBUG
+            CarId.Value = "ВХ4831СЕ";
+#endif
         }
     }
 }

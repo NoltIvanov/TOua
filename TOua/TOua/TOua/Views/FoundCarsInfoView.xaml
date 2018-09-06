@@ -30,7 +30,7 @@
                 </Grid.RowDefinitions>
 
                 <!--  Pseudo action bar  -->
-                <Grid Grid.Row="0" Padding="20,0">
+                <Grid Grid.Row="0" Padding="20">
                     <ContentView
                         HeightRequest="37"
                         HorizontalOptions="Start"
@@ -44,8 +44,8 @@
 
                     <Label
                         FontSize="{StaticResource Key=PageTitles}"
+                        FormattedText="{Binding Path=TargetCarId, Converter={StaticResource Key=CarId_string_to_formated_string_converter}}"
                         HorizontalOptions="Center"
-                        Text="{Binding Path=TargetCarId}"
                         TextColor="{StaticResource Key=White}"
                         VerticalOptions="Center" />
                 </Grid>
