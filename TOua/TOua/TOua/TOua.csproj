@@ -27,25 +27,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\cross.svg" />
     <None Remove="Resources\Images\ic_arrow_down.svg" />
     <None Remove="Resources\Images\ic_arrow_left.png" />
     <None Remove="Resources\Images\ic_arrow_right.png" />
     <None Remove="Resources\Images\ic_close_black.png" />
-    <None Remove="Resources\Images\ic_cross.svg" />
     <None Remove="Resources\Images\im_city_drawing.png" />
     <None Remove="Resources\Images\im_logo.png" />
-    <None Remove="Resources\Images\todo1.svg" />
-    <None Remove="Resources\Images\todo2.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\ic_cross.svg" />
+    <EmbeddedResource Include="Resources\Images\cross.svg" />
     <EmbeddedResource Include="Resources\Images\ic_close_black.png" />
     <EmbeddedResource Include="Resources\Images\im_city_drawing.png" />
     <EmbeddedResource Include="Resources\Images\im_logo.png" />
     <EmbeddedResource Include="Resources\Images\ic_arrow_down.svg" />
-    <EmbeddedResource Include="Resources\Images\todo1.svg" />
-    <EmbeddedResource Include="Resources\Images\todo2.svg" />
   </ItemGroup>
 
   <ItemGroup>
