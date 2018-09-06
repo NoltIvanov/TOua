@@ -82,12 +82,15 @@
                                 <DataTemplate>
                                     <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
                                         <Grid>
+                                            <!--  Shadow  -->
                                             <controls:ExtendedContentView
                                                 BackgroundColor="Black"
                                                 CornerRadius="7"
                                                 Opacity=".02"
                                                 Scale="1.01"
                                                 TranslationY="1" />
+
+                                            <!--  Info card  -->
                                             <controls:ExtendedContentView
                                                 Padding="20,23"
                                                 BackgroundColor="White"
