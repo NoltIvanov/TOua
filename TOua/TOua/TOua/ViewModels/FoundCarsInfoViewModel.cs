@@ -93,9 +93,8 @@ namespace TOua.ViewModels {
             SetBusy(busyKey, true);
 
             try {
-                //FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
-
-                FoundCars = new List<CarinfoDTO>() { new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " } };
+                FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+                //FoundCars = new List<CarinfoDTO>() { new CarinfoDTO() { OperName = "Rlrrlrll rlrrlrll lrllrlrr rlrrlrll lrllrlrr rlrrlrll lrllrlrr rlrrlrll lrllrlrr", OperCode = "240" } };
 
                 InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
             }

@@ -6,7 +6,6 @@
     xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:dependency="clr-namespace:TransportAndOwner.ViewModels.Base"
     xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-    xmlns:stacklist="clr-namespace:TOua.Controls.Stacklist"
     xmlns:viewBase="clr-namespace:TOua.Views.Base"
     dependency:DependencyLocator.AutoWireViewModel="True"
     BackgroundColor="{StaticResource Key=White}">
