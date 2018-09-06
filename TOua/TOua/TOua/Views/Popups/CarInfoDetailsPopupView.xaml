@@ -7,15 +7,50 @@
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:popups="clr-namespace:TOua.Controls.Popups">
 
-    <Grid Padding="10,10,10,0" BackgroundColor="White">
+    <popups:SinglePopupViewBase.Resources>
+        <ResourceDictionary>
+            <Style x:Key="descriptionLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontSize" Value="{StaticResource PageTitles}" />
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansSemiBold}" />
+            </Style>
+
+            <Style x:Key="detailBase" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+            </Style>
+
+            <Style
+                x:Key="valueLabel"
+                BasedOn="{StaticResource detailBase}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontSize" Value="{StaticResource PageTitles}" />
+            </Style>
+
+            <Style
+                x:Key="titleLabel"
+                BasedOn="{StaticResource detailBase}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource LightGray}" />
+                <Setter Property="FontSize" Value="{StaticResource TextInputs}" />
+            </Style>
+        </ResourceDictionary>
+    </popups:SinglePopupViewBase.Resources>
+
+    <Grid
+        Padding="10"
+        BackgroundColor="White"
+        RowSpacing="20">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <ContentView
             Grid.Row="0"
-            BackgroundColor="Yellow"
             HeightRequest="40"
             HorizontalOptions="End"
             VerticalOptions="Center"
@@ -24,17 +59,92 @@
                 <TapGestureRecognizer Command="{Binding Path=ClosePopupCommand}" />
             </ContentView.GestureRecognizers>
             <ffimage:CachedImage
-                HeightRequest="40"
+                HeightRequest="20"
                 HorizontalOptions="Center"
                 Source="{extensions:ImageResource TOua.Resources.Images.ic_close_black.png}"
                 VerticalOptions="Center"
-                WidthRequest="40" />
+                WidthRequest="20" />
         </ContentView>
 
         <Label
             Grid.Row="1"
             HorizontalOptions="Center"
+            Style="{StaticResource descriptionLabel}"
             Text="{Binding TargetCarInfo.OperName}"
             VerticalOptions="Center" />
+
+        <ScrollView Grid.Row="2">
+            <StackLayout Spacing="15">
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DReg}" />
+                    <Label Style="{StaticResource titleLabel}" Text="DReg" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DepCode}" />
+                    <Label Style="{StaticResource titleLabel}" Text="DepCode" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Dep}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Dep" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Brand}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Brand" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.MakeYear}" />
+                    <Label Style="{StaticResource titleLabel}" Text="MakeYear" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Color}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Color" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Kind}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Kind" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Body}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Body" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Purpose}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Purpose" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Fuel}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Fuel" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Capacity}" />
+                    <Label Style="{StaticResource titleLabel}" Text="Capacity" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.OwnWeight}" />
+                    <Label Style="{StaticResource titleLabel}" Text="OwnWeight" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.TotalWeight}" />
+                    <Label Style="{StaticResource titleLabel}" Text="TotalWeight" />
+                </StackLayout>
+
+                <StackLayout Spacing="0">
+                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.NRegNew}" />
+                    <Label Style="{StaticResource titleLabel}" Text="NRegNew" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </Grid>
 </popups:SinglePopupViewBase>
