@@ -22,7 +22,7 @@ namespace TOua.ViewModels {
         }
 
         public ICommand ViewCarInfoDetailsCommand => new Command((object param) => {
-            TestPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
+            CarInfoDetailsPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
         });
 
         private string _targetCarId;
@@ -38,7 +38,7 @@ namespace TOua.ViewModels {
         }
 
         private CarInfoDetailsPopupViewModel _testPopupViewModel;
-        public CarInfoDetailsPopupViewModel TestPopupViewModel {
+        public CarInfoDetailsPopupViewModel CarInfoDetailsPopupViewModel {
             get => _testPopupViewModel;
             set {
                 _testPopupViewModel?.Dispose();
@@ -48,9 +48,9 @@ namespace TOua.ViewModels {
         }
 
         public override Task InitializeAsync(object navigationData) {
-            if (TestPopupViewModel == null) {
-                TestPopupViewModel = DependencyLocator.Resolve<CarInfoDetailsPopupViewModel>();
-                TestPopupViewModel.InitializeAsync(this);
+            if (CarInfoDetailsPopupViewModel == null) {
+                CarInfoDetailsPopupViewModel = DependencyLocator.Resolve<CarInfoDetailsPopupViewModel>();
+                CarInfoDetailsPopupViewModel.InitializeAsync(this);
             }
 
             /// TODO: Temporary implementation
@@ -59,7 +59,7 @@ namespace TOua.ViewModels {
                 GetCarsInfo(TargetCarId);
             }
 
-            TestPopupViewModel?.InitializeAsync(navigationData);
+            CarInfoDetailsPopupViewModel?.InitializeAsync(navigationData);
 
             return base.InitializeAsync(navigationData);
         }
@@ -67,7 +67,7 @@ namespace TOua.ViewModels {
         public override void Dispose() {
             base.Dispose();
 
-            TestPopupViewModel?.Dispose();
+            CarInfoDetailsPopupViewModel?.Dispose();
             ResetCancellationTokenSource(ref _getCarsCancellationTokenSource);
         }
 

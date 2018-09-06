@@ -29,6 +29,7 @@
   <ItemGroup>
     <None Remove="Resources\Images\ic_arrow_left.png" />
     <None Remove="Resources\Images\ic_arrow_right.png" />
+    <None Remove="Resources\Images\ic_close_black.png" />
     <None Remove="Resources\Images\im_city_drawing.png" />
     <None Remove="Resources\Images\im_logo.png" />
   </ItemGroup>
@@ -36,6 +37,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\ic_arrow_left.png" />
     <EmbeddedResource Include="Resources\Images\ic_arrow_right.png" />
+    <EmbeddedResource Include="Resources\Images\ic_close_black.png" />
     <EmbeddedResource Include="Resources\Images\im_city_drawing.png" />
     <EmbeddedResource Include="Resources\Images\im_logo.png" />
   </ItemGroup>
