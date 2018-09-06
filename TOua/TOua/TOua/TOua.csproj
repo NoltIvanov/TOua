@@ -29,14 +29,16 @@
   <ItemGroup>
     <None Remove="Resources\Images\ic_arrow_left.png" />
     <None Remove="Resources\Images\ic_arrow_right.png" />
+    <None Remove="Resources\Images\ic_arrow_right.svg" />
     <None Remove="Resources\Images\ic_close_black.png" />
+    <None Remove="Resources\Images\ic_cross.svg" />
     <None Remove="Resources\Images\im_city_drawing.png" />
     <None Remove="Resources\Images\im_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\ic_arrow_left.png" />
-    <EmbeddedResource Include="Resources\Images\ic_arrow_right.png" />
+    <EmbeddedResource Include="Resources\Images\ic_arrow_right.svg" />
+    <EmbeddedResource Include="Resources\Images\ic_cross.svg" />
     <EmbeddedResource Include="Resources\Images\ic_close_black.png" />
     <EmbeddedResource Include="Resources\Images\im_city_drawing.png" />
     <EmbeddedResource Include="Resources\Images\im_logo.png" />
@@ -48,6 +50,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.3.840" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +13,8 @@ using Xamarin.Forms;
 
 namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
+
+        private static readonly string _NO_RESULTS_MESSAGE = "Інформації не знайдено";
 
         private readonly ICarsInfoService _carsInfoService;
 
@@ -29,6 +32,12 @@ namespace TOua.ViewModels {
         public string TargetCarId {
             get => _targetCarId;
             private set => SetProperty<string>(ref _targetCarId, value);
+        }
+
+        private string _informText;
+        public string InformText {
+            get => _informText;
+            private set => SetProperty<string>(ref _informText, value);
         }
 
         private List<CarinfoDTO> _foundCars = new List<CarinfoDTO>();
@@ -80,6 +89,8 @@ namespace TOua.ViewModels {
 
             try {
                 FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+
+                InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
             }
             catch (OperationCanceledException) { }
             catch (ObjectDisposedException) { }
