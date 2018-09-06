@@ -76,10 +76,11 @@
                     </Grid.RowDefinitions>
 
                     <!--  Car id entry  -->
-                    <StackLayout BackgroundColor="{StaticResource Key=White}" Spacing="3">
+                    <StackLayout Spacing="3">
                         <controls:ExtendedContentView
                             Grid.Row="0"
                             Padding="8,12"
+                            BackgroundColor="{StaticResource WhiteColor}"
                             BorderColor="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Is_valid_to_color_converter}}"
                             BorderThickness="1"
                             CornerRadius="7">
