@@ -4,10 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using TransportAndOwner.ViewModels.Base;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace TOua.ViewModels.Base {
     public class ContentPageBaseViewModel : ViewModelBase {
+        private static readonly string _SOURCE_URL = "https://data.gov.ua/";
+
         private readonly Dictionary<Guid, bool> _busySequence = new Dictionary<Guid, bool>();
 
         private ObservableCollection<PopupBaseViewModel> _popups = new ObservableCollection<PopupBaseViewModel>();
@@ -21,6 +24,10 @@ namespace TOua.ViewModels.Base {
             get => _refreshCommand;
             protected set => SetProperty<ICommand>(ref _refreshCommand, value);
         }
+
+        public ICommand NavigateToSourceCommand => new Command((object param) => {
+            Device.OpenUri(new Uri(_SOURCE_URL));
+        });
 
         private bool _isPullToRefreshEnabled;
         public bool IsPullToRefreshEnabled {

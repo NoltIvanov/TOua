@@ -34,7 +34,6 @@ namespace TOua.Services.CarsInfo {
                     foundCars = getCarsInfoByCarIdResponse.ToList();
                 }
                 catch (Exception exc) {
-                    Debugger.Break();
                     throw;
                 }
 
