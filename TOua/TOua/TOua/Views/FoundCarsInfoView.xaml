@@ -81,18 +81,39 @@
                             <stacklist:StackList.ItemTemplate>
                                 <DataTemplate>
                                     <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
-                                        <controls:ExtendedContentView
-                                            Padding="20,25"
-                                            BackgroundColor="{StaticResource Key=White}"
-                                            CornerRadius="3">
-                                            <controls:ExtendedContentView.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
-                                            </controls:ExtendedContentView.GestureRecognizers>
-                                            <StackLayout Spacing="9">
-                                                <Label Text="790" />
-                                                <Label Text="Text binding in developing" />
-                                            </StackLayout>
-                                        </controls:ExtendedContentView>
+                                        <Grid>
+                                            <!--  Shadow  -->
+                                            <controls:ExtendedContentView
+                                                BackgroundColor="Black"
+                                                CornerRadius="7"
+                                                Opacity=".02"
+                                                Scale="1.01"
+                                                TranslationY="1" />
+
+                                            <!--  Info card  -->
+                                            <controls:ExtendedContentView
+                                                Padding="20,23"
+                                                BackgroundColor="White"
+                                                CornerRadius="7">
+                                                <controls:ExtendedContentView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
+                                                </controls:ExtendedContentView.GestureRecognizers>
+                                                <StackLayout Spacing="9">
+                                                    <controls:LabelExtended
+                                                        FontFamily="{StaticResource Key=OpenSansSemiBold}"
+                                                        FontSize="{StaticResource Key=PageTitles}"
+                                                        Text="{Binding Path=OperCode}"
+                                                        TextColor="{StaticResource Key=DeepBlue}" />
+                                                    <controls:LabelExtended
+                                                        FontFamily="{StaticResource Key=OpenSansSemiBold}"
+                                                        FontSize="{StaticResource Key=ParagraphText}"
+                                                        LetterSpacing=".025"
+                                                        LineHeight="1.1"
+                                                        Text="{Binding Path=OperName}"
+                                                        TextColor="{StaticResource Key=Black}" />
+                                                </StackLayout>
+                                            </controls:ExtendedContentView>
+                                        </Grid>
                                     </stacklist:CommonStackListItem>
                                 </DataTemplate>
                             </stacklist:StackList.ItemTemplate>
