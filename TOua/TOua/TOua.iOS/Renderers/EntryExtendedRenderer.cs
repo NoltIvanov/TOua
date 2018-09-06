@@ -3,7 +3,7 @@ using TOua.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(EntryExtendedRenderer), typeof(EntryExtended))]
+[assembly: ExportRenderer(typeof(EntryExtended), typeof(EntryExtendedRenderer))]
 namespace TOua.iOS.Renderers {
     public class EntryExtendedRenderer : EntryRenderer {
 

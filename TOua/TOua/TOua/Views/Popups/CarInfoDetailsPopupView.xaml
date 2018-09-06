@@ -3,6 +3,7 @@
     x:Class="TOua.Views.Popups.CarInfoDetailsPopupView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:popups="clr-namespace:TOua.Controls.Popups">
@@ -33,6 +34,7 @@
                 x:Key="titleLabel"
                 BasedOn="{StaticResource detailBase}"
                 TargetType="Label">
+                <Setter Property="TranslationY" Value="-5" />
                 <Setter Property="TextColor" Value="{StaticResource LightGray}" />
                 <Setter Property="FontSize" Value="{StaticResource TextInputs}" />
             </Style>
@@ -76,8 +78,8 @@
         <ScrollView Grid.Row="2">
             <StackLayout Spacing="15">
                 <StackLayout Spacing="0">
-                    <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DReg}" />
-                    <Label Style="{StaticResource titleLabel}" Text="DReg" />
+                    <controls:LabelExtended Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DReg}" />
+                    <controls:LabelExtended Style="{StaticResource titleLabel}" Text="DReg" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
