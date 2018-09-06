@@ -22,11 +22,10 @@ namespace TOua.iOS.Renderers {
 
         private void SetupLayer(int borderWidth, nfloat borderRadius) {
             Layer.CornerRadius = borderRadius;
-
+            
             if (Element.BackgroundColor != Color.Default) {
                 Layer.BackgroundColor = Element.BackgroundColor.ToUIColor().CGColor;
-            }
-            else {
+            } else {
                 Layer.BackgroundColor = UIColor.White.CGColor;
             }
 

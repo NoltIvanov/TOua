@@ -79,7 +79,7 @@
             <StackLayout Spacing="15">
                 <StackLayout Spacing="0">
                     <controls:LabelExtended Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DReg}" />
-                    <controls:LabelExtended Style="{StaticResource titleLabel}" Text="DReg" />
+                    <controls:LabelExtended Style="{StaticResource titleLabel}" Text="Дата реєстрації" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
@@ -94,57 +94,57 @@
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Brand}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Brand" />
+                    <Label Style="{StaticResource titleLabel}" Text="Марка" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.MakeYear}" />
-                    <Label Style="{StaticResource titleLabel}" Text="MakeYear" />
+                    <Label Style="{StaticResource titleLabel}" Text="Рік випуску" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Color}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Color" />
+                    <Label Style="{StaticResource titleLabel}" Text="Колір" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Kind}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Kind" />
+                    <Label Style="{StaticResource titleLabel}" Text="Тип" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Body}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Body" />
+                    <Label Style="{StaticResource titleLabel}" Text="Кузов" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Purpose}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Purpose" />
+                    <Label Style="{StaticResource titleLabel}" Text="Призначення" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Fuel}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Fuel" />
+                    <Label Style="{StaticResource titleLabel}" Text="Тип палива" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Capacity}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Capacity" />
+                    <Label Style="{StaticResource titleLabel}" Text="Об'єм двигуна" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.OwnWeight}" />
-                    <Label Style="{StaticResource titleLabel}" Text="OwnWeight" />
+                    <Label Style="{StaticResource titleLabel}" Text="Маса без навантаження" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.TotalWeight}" />
-                    <Label Style="{StaticResource titleLabel}" Text="TotalWeight" />
+                    <Label Style="{StaticResource titleLabel}" Text="Повна маса" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.NRegNew}" />
-                    <Label Style="{StaticResource titleLabel}" Text="NRegNew" />
+                    <Label Style="{StaticResource titleLabel}" Text="Номер транспортного засобу" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

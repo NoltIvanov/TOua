@@ -79,12 +79,12 @@
                     <StackLayout Spacing="3">
                         <controls:ExtendedContentView
                             Grid.Row="0"
+                            BackgroundColor="Transparent"
                             Padding="8,12"
-                            BackgroundColor="{StaticResource WhiteColor}"
                             BorderColor="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Is_valid_to_color_converter}}"
                             BorderThickness="1"
                             CornerRadius="7">
-                            <ContentView>
+                            <ContentView >
                                 <controls:EntryExtended
                                     FontFamily="{StaticResource Key=OpenSansRegular}"
                                     FontSize="{StaticResource Key=TextInputs}"
