@@ -110,9 +110,9 @@ namespace TOua.Views.Base {
             SetBinding(IsRefreshingProperty, new Binding(_IS_REFRESHING_BINDING_PATH, BindingMode.TwoWay));
             SetBinding(RefreshCommandProperty, new Binding(_REFRESH_COMMAND_BINDING_PATH, BindingMode.OneWay));
 
-            _mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.IsPullToRefreshEnabledProperty, new Binding(_IS_PULL_TO_REFRESH_ENABLED_BINDING_PATH, mode: BindingMode.OneWay, source: this));
-            _mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.IsRefreshingProperty, new Binding(_IS_REFRESHING_BINDING_PATH, mode: BindingMode.TwoWay, source: this));
-            _mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.RefreshCommandProperty, new Binding(_REFRESH_COMMAND_BINDING_PATH, mode: BindingMode.OneWay, source: this));
+            //_mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.IsPullToRefreshEnabledProperty, new Binding(_IS_PULL_TO_REFRESH_ENABLED_BINDING_PATH, mode: BindingMode.OneWay, source: this));
+            //_mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.IsRefreshingProperty, new Binding(_IS_REFRESHING_BINDING_PATH, mode: BindingMode.TwoWay, source: this));
+            //_mainContentSpot_PullToRefreshLayout.SetBinding(PullToRefreshLayout.RefreshCommandProperty, new Binding(_REFRESH_COMMAND_BINDING_PATH, mode: BindingMode.OneWay, source: this));
 
             _popupsKeeper_PopupsBlockView.SetBinding(PopupsBlockView.PopupsProperty, new Binding(_POPUPS_BINDING_PATH, mode: BindingMode.OneWay));
         }

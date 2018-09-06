@@ -35,5 +35,9 @@ namespace TOua.Controls {
             get { return (Color)GetValue(BorderColorProperty); }
             set { SetValue(BorderColorProperty, value); }
         }
+
+        protected override SizeRequest OnMeasure(double widthConstraint, double heightConstraint) {
+            return base.OnMeasure(widthConstraint, heightConstraint);
+        }
     }
 }

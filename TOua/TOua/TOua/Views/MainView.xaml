@@ -80,7 +80,7 @@
                         <controls:ExtendedContentView
                             Grid.Row="0"
                             Padding="8,12"
-                            BackgroundColor="{StaticResource WhiteColor}"
+                            BackgroundColor="{StaticResource White}"
                             BorderColor="{Binding Path=CarId.IsValid, Converter={StaticResource Key=Is_valid_to_color_converter}}"
                             BorderThickness="1"
                             CornerRadius="7">

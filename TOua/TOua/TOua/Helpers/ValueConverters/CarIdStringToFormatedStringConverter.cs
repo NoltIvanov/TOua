@@ -10,6 +10,8 @@ namespace TOua.Helpers.ValueConverters {
 
             if (value != null && value is string targetValue) {
                 if (targetValue.Length == 8) {
+                    targetValue = targetValue.ToUpper();
+
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(0, 2) });
                     formattedString.Spans.Add(new Span() { Text = string.Format(" {0} ", targetValue.Substring(2, targetValue.Length - 4)) });
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(targetValue.Length - 2, 2) });
@@ -25,5 +27,14 @@ namespace TOua.Helpers.ValueConverters {
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
             throw new NotImplementedException("CarIdStringToFormatedStringConverter.ConvertBack");
         }
+
+        //private bool TODO(string value) {
+
+        //    for (int i = 0; i < value.Length - 1; i++) {
+
+        //    }
+
+        //    return false;
+        //}
     }
 }

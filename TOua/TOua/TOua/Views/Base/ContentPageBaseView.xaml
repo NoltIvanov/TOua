@@ -56,14 +56,14 @@
                 <!--  Main content popover-keeper. Will resolve behavior when `main content popover` overlaps bottom bar  -->
                 <ContentView Grid.Row="0">
                     <!--  Main content spot  -->
-                    <controls:PullToRefreshLayout
+                    <!--<controls:PullToRefreshLayout
                         x:Name="_mainContentSpot_PullToRefreshLayout"
                         AbsoluteLayout.LayoutBounds="1,1,1,1"
                         AbsoluteLayout.LayoutFlags="All"
                         RefreshBackgroundColor="White"
-                        RefreshColor="LightBlue">
-                        <Grid x:Name="_contentBox_Grid" Grid.Row="0" />
-                    </controls:PullToRefreshLayout>
+                        RefreshColor="LightBlue">-->
+                    <Grid x:Name="_contentBox_Grid" Grid.Row="0" />
+                    <!--</controls:PullToRefreshLayout>-->
                 </ContentView>
 
                 <!--  Bottom bar spot  -->

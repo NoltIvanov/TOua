@@ -14,5 +14,16 @@ namespace TOua.Views {
         public FoundCarsInfoView() {
             InitializeComponent();
         }
+
+        protected override void OnAppearing() {
+            base.OnAppearing();
+
+            object content = Content;
+
+            //ForceLayout();
+            //InvalidateMeasure();
+            UpdateChildrenLayout();
+            
+        }
     }
 }

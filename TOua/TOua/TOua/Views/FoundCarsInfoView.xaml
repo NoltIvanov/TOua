@@ -23,7 +23,7 @@
             </Grid>
 
             <!--  Page content scope  -->
-            <Grid>
+            <Grid Padding="0,6">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -61,7 +61,13 @@
                     </ContentView>
                 </Grid>
 
-                <ScrollView Grid.Row="1" Padding="20,0">
+                <Grid Grid.Row="1" RowSpacing="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--  Results scope output  -->
                     <Grid>
                         <!--  Inform label  -->
                         <controls:LabelExtended
@@ -71,16 +77,15 @@
                             Text="{Binding Path=InformText}"
                             TextColor="{StaticResource Key=Black}"
                             VerticalOptions="Center" />
-
-                        <!--  Main content (found results scope)  -->
-                        <stacklist:StackList
+                        <ListView
                             x:Name="_carsInfoList_StackList"
+                            HasUnevenRows="True"
                             ItemsSource="{Binding Path=FoundCars}"
-                            Spacing="9">
-                            <stacklist:StackList.ItemTemplate>
+                            SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <stacklist:CommonStackListItem IsOnSelectionVisualChangesEnabled="False" IsSelectable="False">
-                                        <Grid>
+                                    <ViewCell>
+                                        <Grid Margin="20,3" Padding="0,0,0,2">
                                             <!--  Shadow  -->
                                             <controls:ExtendedContentView
                                                 BackgroundColor="Black"
@@ -106,19 +111,49 @@
                                                     <controls:LabelExtended
                                                         FontFamily="{StaticResource Key=OpenSansSemiBold}"
                                                         FontSize="{StaticResource Key=ParagraphText}"
+                                                        HorizontalOptions="Start"
+                                                        HorizontalTextAlignment="Start"
                                                         LetterSpacing=".025"
+                                                        LineBreakMode="WordWrap"
                                                         LineHeight="1.1"
                                                         Text="{Binding Path=OperName}"
                                                         TextColor="{StaticResource Key=Black}" />
                                                 </StackLayout>
                                             </controls:ExtendedContentView>
                                         </Grid>
-                                    </stacklist:CommonStackListItem>
+                                    </ViewCell>
                                 </DataTemplate>
-                            </stacklist:StackList.ItemTemplate>
-                        </stacklist:StackList>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
-                </ScrollView>
+
+                    <!--  Bottom common info  -->
+                    <StackLayout
+                        Grid.Row="1"
+                        Padding="20,0"
+                        Spacing="0">
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansRegular}"
+                            FontSize="{StaticResource Key=HintText}"
+                            HorizontalTextAlignment="Center"
+                            LineHeight=".8"
+                            Text="Актуальна інформація станом на 31.08.2018"
+                            TextColor="{StaticResource Key=LightGray}" />
+
+                        <controls:LabelExtended
+                            FontFamily="{StaticResource Key=OpenSansRegular}"
+                            FontSize="{StaticResource Key=HintText}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            LineHeight=".8"
+                            Text="data.gov.ua"
+                            TextColor="{StaticResource Key=Blue}">
+                            <controls:LabelExtended.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=NavigateToSourceCommand}" />
+                            </controls:LabelExtended.GestureRecognizers>
+                        </controls:LabelExtended>
+                    </StackLayout>
+                </Grid>
             </Grid>
         </Grid>
     </viewBase:ContentPageBaseView.MainContent>

@@ -8,7 +8,7 @@ namespace TOua.Controls {
             nameof(LineHeight),
             typeof(float),
             typeof(LabelExtended),
-            defaultValue: .1F);
+            defaultValue: 1F);
 
         public static readonly BindableProperty LetterSpacingProperty = BindableProperty.Create(
             nameof(LetterSpacing),

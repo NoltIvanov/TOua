@@ -15,6 +15,7 @@ namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
 
         private static readonly string _NO_RESULTS_MESSAGE = "Інформації не знайдено";
+        private static readonly string _SOURCE_URL = "https://data.gov.ua/";
 
         private readonly ICarsInfoService _carsInfoService;
 
@@ -26,6 +27,10 @@ namespace TOua.ViewModels {
 
         public ICommand ViewCarInfoDetailsCommand => new Command((object param) => {
             CarInfoDetailsPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
+        });
+
+        public ICommand NavigateToSourceCommand => new Command((object param) => {
+            Device.OpenUri(new Uri(_SOURCE_URL));
         });
 
         private string _targetCarId;
@@ -88,7 +93,9 @@ namespace TOua.ViewModels {
             SetBusy(busyKey, true);
 
             try {
-                FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+                //FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
+
+                FoundCars = new List<CarinfoDTO>() { new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " }, new CarinfoDTO() { OperName = "OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName OperName " } };
 
                 InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
             }
