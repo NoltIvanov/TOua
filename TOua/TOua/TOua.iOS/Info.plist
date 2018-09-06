@@ -46,7 +46,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>CarID</string>
+	<string>Державний транспортний реєстр</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.companyname.TOua</string>
 	<key>CFBundleVersion</key>
@@ -60,7 +60,7 @@
 		<string>Fonts/OpenSans-Bold.ttf</string>
 		<string>Fonts/OpenSans-Italic.ttf</string>
 		<string>Fonts/OpenSans-Regular.ttf</string>
-    <string>Fonts/OpenSans-Semibold.ttf</string>
+		<string>Fonts/OpenSans-Semibold.ttf</string>
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
