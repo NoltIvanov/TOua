@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:TOua.Controls"
     xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:popups="clr-namespace:TOua.Controls.Popups">
 
     <popups:SinglePopupViewBase.Resources>
@@ -60,12 +61,33 @@
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding Path=ClosePopupCommand}" />
             </ContentView.GestureRecognizers>
-            <ffimage:CachedImage
+            <!--<ffimage:CachedImage
                 HeightRequest="20"
                 HorizontalOptions="Center"
                 Source="{extensions:ImageResource TOua.Resources.Images.ic_close_black.png}"
                 VerticalOptions="Center"
-                WidthRequest="20" />
+                WidthRequest="20" />-->
+
+
+
+
+            <!--<ffimagesvg:SvgCachedImage
+                HorizontalOptions="Center"
+                Scale="1"
+                Source="resource://TOua.Resources.Images.todo1.svg"
+                VerticalOptions="Center" />-->
+
+            <ffimagesvg:SvgCachedImage
+                HorizontalOptions="Center"
+                Scale="1.2"
+                Source="resource://TOua.Resources.Images.todo1.svg"
+                VerticalOptions="Center" />
+
+            <!--<ffimagesvg:SvgCachedImage
+                HorizontalOptions="Center"
+                Scale="1"
+                Source="resource://TOua.Resources.Images.todo2.svg"
+                VerticalOptions="Center" />-->
         </ContentView>
 
         <Label
@@ -84,12 +106,12 @@
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.DepCode}" />
-                    <Label Style="{StaticResource titleLabel}" Text="DepCode" />
+                    <Label Style="{StaticResource titleLabel}" Text="Код ТСЦ" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Dep}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Dep" />
+                    <Label Style="{StaticResource titleLabel}" Text="ТСЦ" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">
@@ -114,7 +136,7 @@
 
                 <StackLayout Spacing="0">
                     <Label Style="{StaticResource valueLabel}" Text="{Binding TargetCarInfo.Body}" />
-                    <Label Style="{StaticResource titleLabel}" Text="Кузов" />
+                    <Label Style="{StaticResource titleLabel}" Text="Тип кузова" />
                 </StackLayout>
 
                 <StackLayout Spacing="0">

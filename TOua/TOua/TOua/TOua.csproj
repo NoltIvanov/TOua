@@ -34,6 +34,8 @@
     <None Remove="Resources\Images\ic_cross.svg" />
     <None Remove="Resources\Images\im_city_drawing.png" />
     <None Remove="Resources\Images\im_logo.png" />
+    <None Remove="Resources\Images\todo1.svg" />
+    <None Remove="Resources\Images\todo2.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +44,8 @@
     <EmbeddedResource Include="Resources\Images\im_city_drawing.png" />
     <EmbeddedResource Include="Resources\Images\im_logo.png" />
     <EmbeddedResource Include="Resources\Images\ic_arrow_down.svg" />
+    <EmbeddedResource Include="Resources\Images\todo1.svg" />
+    <EmbeddedResource Include="Resources\Images\todo2.svg" />
   </ItemGroup>
 
   <ItemGroup>

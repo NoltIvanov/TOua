@@ -59,7 +59,7 @@
                         FontFamily="{StaticResource Key=OpenSansSemiBold}"
                         HorizontalOptions="Center"
                         LetterSpacing=".025"
-                        Text="Довідник автомобілів"
+                        Text="Державний транспортний реєстр"
                         TextColor="{StaticResource Key=Black}"
                         VerticalOptions="Center" />
                 </Grid>
@@ -67,8 +67,8 @@
                 <!--  Inputs scope  -->
                 <Grid
                     Grid.Row="1"
-                    Margin="0,20"
                     RowSpacing="20"
+                    TranslationY="15"
                     VerticalOptions="Start">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -87,7 +87,7 @@
                                 <controls:EntryExtended
                                     FontFamily="{StaticResource Key=OpenSansRegular}"
                                     FontSize="{StaticResource Key=TextInputs}"
-                                    Placeholder="Введіть щось?"
+                                    Placeholder="Введіть номер авто"
                                     Text="{Binding Path=CarId.Value, Mode=TwoWay}"
                                     VerticalOptions="Center" />
                             </ContentView>
