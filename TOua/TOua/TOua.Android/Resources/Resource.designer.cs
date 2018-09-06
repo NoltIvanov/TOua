@@ -3109,7 +3109,7 @@ namespace TOua.Droid
 			public const int splashscreen_layer_list_drawable = 2130837808;
 			
 			// aapt resource value: 0x7f020131
-			public const int todo = 2130837809;
+			public const int splesh_logo = 2130837809;
 			
 			// aapt resource value: 0x7f020132
 			public const int tooltip_frame_dark = 2130837810;
