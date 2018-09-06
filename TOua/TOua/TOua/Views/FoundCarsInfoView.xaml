@@ -51,11 +51,12 @@
                         <ContentView.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
                         </ContentView.GestureRecognizers>
+
                         <ffimagesvg:SvgCachedImage
                             HorizontalOptions="Center"
-                            Rotation="-180"
-                            Scale="1.5"
-                            Source="resource://TOua.Resources.Images.ic_arrow_right.svg"
+                            Rotation="90"
+                            Source="resource://TOua.Resources.Images.ic_arrow_down.svg"
+                            TranslationY="2"
                             VerticalOptions="Center" />
                     </ContentView>
                 </Grid>

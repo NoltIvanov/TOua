@@ -9,7 +9,7 @@ namespace TOua.Helpers.ValueConverters {
             FormattedString formattedString = new FormattedString();
 
             if (value != null && value is string targetValue) {
-                if (targetValue.Length > 4) {
+                if (targetValue.Length == 8) {
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(0, 2) });
                     formattedString.Spans.Add(new Span() { Text = string.Format(" {0} ", targetValue.Substring(2, targetValue.Length - 4)) });
                     formattedString.Spans.Add(new Span() { Text = targetValue.Substring(targetValue.Length - 2, 2) });
