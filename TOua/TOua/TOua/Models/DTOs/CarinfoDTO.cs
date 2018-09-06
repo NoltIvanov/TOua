@@ -1,23 +1,27 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace TOua.Models.DTOs {
     public class CarinfoDTO {
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
         [JsonProperty("person")]
         public string Person { get; set; }
 
-        [JsonProperty("reg_addr_koatuu")]
+        [JsonProperty("regAddrKoatuu")]
         public string RegAddrKoatuu { get; set; }
 
-        [JsonProperty("oper_code")]
+        [JsonProperty("operCode")]
         public string OperCode { get; set; }
 
-        [JsonProperty("oper_name")]
+        [JsonProperty("operName")]
         public string OperName { get; set; }
 
-        [JsonProperty("d_reg")]
+        [JsonProperty("dReg")]
         public string DReg { get; set; }
 
-        [JsonProperty("dep_code")]
+        [JsonProperty("depCode")]
         public string DepCode { get; set; }
 
         [JsonProperty("dep")]
@@ -26,10 +30,10 @@ namespace TOua.Models.DTOs {
         [JsonProperty("brand")]
         public string Brand { get; set; }
 
-        [JsonProperty("model")]
+        [JsonProperty("modelName")]
         public string ModelName { get; set; }
 
-        [JsonProperty("make_year")]
+        [JsonProperty("makeYear")]
         public string MakeYear { get; set; }
 
         [JsonProperty("color")]
@@ -50,13 +54,13 @@ namespace TOua.Models.DTOs {
         [JsonProperty("capacity")]
         public string Capacity { get; set; }
 
-        [JsonProperty("own_weight")]
+        [JsonProperty("ownWeight")]
         public string OwnWeight { get; set; }
 
-        [JsonProperty("total_weight")]
+        [JsonProperty("totalWeight")]
         public string TotalWeight { get; set; }
 
-        [JsonProperty("n_reg_new")]
+        [JsonProperty("nRegNew")]
         public string NRegNew { get; set; }
     }
 }

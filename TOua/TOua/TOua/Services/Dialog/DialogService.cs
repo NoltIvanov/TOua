@@ -14,7 +14,7 @@ namespace TransportAndOwner.Services.Dialog {
                 return UserDialogs.Instance.Toast(new ToastConfig(message)
                     //var icon = await BitmapLoader.Current.LoadFromResource("emoji_cool_small.png", null, null);
                     //.SetIcon(icon)
-                    .SetBackgroundColor(Color.FromArgb(12, 168, 244))
+                    .SetBackgroundColor(Color.FromArgb(0, 100, 201))
                     .SetMessageTextColor(Color.White)
                     .SetDuration(TimeSpan.FromSeconds(3))
                     .SetPosition(ToastPosition.Bottom));

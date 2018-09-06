@@ -4,15 +4,22 @@ using TOua.ViewModels.Base;
 using TOua.Views.Popups;
 
 namespace TOua.ViewModels.Popups {
-    public class CarInfoDetailsPopupViewModel : PopupBaseViewModel {
+    public sealed class CarInfoDetailsPopupViewModel : PopupBaseViewModel {
 
-        private CarinfoDTO _targetCarInfo;
+        CarinfoDTO _targetCarInfo;
         public CarinfoDTO TargetCarInfo {
             get => _targetCarInfo;
             private set => SetProperty(ref _targetCarInfo, value);
         }
 
         public override Type RelativeViewType => typeof(CarInfoDetailsPopupView);
+
+        /// <summary>
+        ///     ctor().
+        /// </summary>
+        public CarInfoDetailsPopupViewModel() {
+
+        }
 
         public void ViewCarInfoDetails(CarinfoDTO targetCarInfo) {
             if (targetCarInfo != null) {

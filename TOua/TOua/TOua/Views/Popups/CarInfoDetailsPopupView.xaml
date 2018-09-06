@@ -3,9 +3,11 @@
     x:Class="TOua.Views.Popups.CarInfoDetailsPopupView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extensions="clr-namespace:TOua.Helpers.Extensions"
     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:popups="clr-namespace:TOua.Controls.Popups">
-    <Grid BackgroundColor="White">
+
+    <Grid Padding="10,10,10,0" BackgroundColor="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -13,20 +15,26 @@
 
         <ContentView
             Grid.Row="0"
-            HeightRequest="37"
-            HorizontalOptions="Start"
+            BackgroundColor="Yellow"
+            HeightRequest="40"
+            HorizontalOptions="End"
             VerticalOptions="Center"
-            WidthRequest="37">
+            WidthRequest="40">
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding Path=ClosePopupCommand}" />
             </ContentView.GestureRecognizers>
-            <ffimage:CachedImage BackgroundColor="Black" />
+            <ffimage:CachedImage
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Source="{extensions:ImageResource TOua.Resources.Images.ic_close_black.png}"
+                VerticalOptions="Center"
+                WidthRequest="40" />
         </ContentView>
 
         <Label
             Grid.Row="1"
             HorizontalOptions="Center"
-            Text="Popup in developing"
+            Text="{Binding TargetCarInfo.OperName}"
             VerticalOptions="Center" />
     </Grid>
 </popups:SinglePopupViewBase>

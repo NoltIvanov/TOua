@@ -18,6 +18,8 @@ namespace TransportAndOwner.ViewModels {
             _validationObjectFactory = validationObjectFactory;
 
             ResetValidationObjects();
+
+
         }
 
         public ICommand FindCarInfoCommand => new Command(async () => {
@@ -36,6 +38,10 @@ namespace TransportAndOwner.ViewModels {
 
         public override Task InitializeAsync(object navigationData) {
             ResetValidationObjects();
+
+#if DEBUG
+            CarId.Value = "ВХ4831СЕ";
+#endif
 
             return base.InitializeAsync(navigationData);
         }
