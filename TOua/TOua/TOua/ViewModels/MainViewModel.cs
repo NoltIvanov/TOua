@@ -26,7 +26,7 @@ namespace TransportAndOwner.ViewModels {
                 Guid busyKey = Guid.NewGuid();
                 SetBusy(busyKey, true);
 
-                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value);
+                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value.Replace(" ", "").Trim());
 
                 SetBusy(busyKey, false);
             }
