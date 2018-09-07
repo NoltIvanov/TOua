@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TOua.Factories.Validation;
+using TOua.Helpers;
 using TOua.Helpers.Validations;
 using TOua.Helpers.Validations.Contracts.ValidationRules;
 using TOua.Services.Memory;
@@ -27,7 +28,7 @@ namespace TransportAndOwner.ViewModels {
                 Guid busyKey = Guid.NewGuid();
                 SetBusy(busyKey, true);
 
-                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value.Replace(" ", "").Trim());
+                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value.ValidateCarNumber());
 
                 SetBusy(busyKey, false);
             }

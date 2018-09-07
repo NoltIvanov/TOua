@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TOua.Exceptions;
 using TOua.Models.DTOs;
 using TOua.Services.CarsInfo;
 using TOua.ViewModels.Base;
@@ -100,8 +101,8 @@ namespace TOua.ViewModels {
             }
             catch (OperationCanceledException) { }
             catch (ObjectDisposedException) { }
-            catch (WebException) {
-                InformText = _WEB_MESSAGE;
+            catch (ConnectivityException ex) {
+                InformText = ex.Message;
             }
             catch (Exception) {
                 InformText = _NO_RESULTS_MESSAGE;
