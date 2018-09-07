@@ -64,12 +64,12 @@
 
             <ffimagesvg:SvgCachedImage
                 HorizontalOptions="Center"
-                Scale="1.2"
                 Source="resource://TOua.Resources.Images.cross.svg"
                 VerticalOptions="Center">
                 <ffimagesvg:SvgCachedImage.Scale>
                     <OnPlatform x:TypeArguments="x:Double">
                         <On Platform="iOS" Value="0.8" />
+                        <On Platform="Android" Value="1.2" />
                     </OnPlatform>
                 </ffimagesvg:SvgCachedImage.Scale>
             </ffimagesvg:SvgCachedImage>
