@@ -99,12 +99,12 @@ namespace TOua.ViewModels {
 
                 InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
             }
-            catch (OperationCanceledException) { }
-            catch (ObjectDisposedException) { }
+            catch (OperationCanceledException ex) { }
+            catch (ObjectDisposedException ex) { }
             catch (ConnectivityException ex) {
                 InformText = ex.Message;
             }
-            catch (Exception) {
+            catch (Exception ex) {
                 InformText = _NO_RESULTS_MESSAGE;
             }
 

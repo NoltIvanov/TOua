@@ -5,6 +5,7 @@ using TOua.Factories.Validation;
 using TOua.Helpers;
 using TOua.Helpers.Validations;
 using TOua.Helpers.Validations.Contracts.ValidationRules;
+using TOua.Helpers.Validations.ValidationRules;
 using TOua.Services.Memory;
 using TOua.ViewModels;
 using TOua.ViewModels.Base;
@@ -57,7 +58,8 @@ namespace TransportAndOwner.ViewModels {
         private void ResetValidationObjects() {
             CarId = _validationObjectFactory.GetValidatableObject<string>();
             CarId.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = _CAR_ID_IS_REQUIRED_ERROR_MESSAGE });
-
+            CarId.Validations.Add(new CarIdCountRule<string> { ValidationMessage = AppConsts.ERROR_CAR_NUMBER_COUNT });
+            CarId.Validations.Add(new SpecificSymbolsRule<string> { ValidationMessage = AppConsts.ERROR_ALPHANUMERIC_SYMBOLS });
 #if DEBUG
             CarId.Value = "ВХ4831СЕ";
 #endif
