@@ -21,11 +21,13 @@ namespace TOua {
         }
 
         private static void TrackMemoryUsage() {
-            Device.StartTimer(TimeSpan.FromSeconds(5), () => {
-                MemoryHelper.DisplayAndroidMemory();
+            if (Device.RuntimePlatform == Device.Android) {
+                Device.StartTimer(TimeSpan.FromSeconds(5), () => {
+                    MemoryHelper.DisplayAndroidMemory();
 
-                return true;
-            });
+                    return true;
+                });
+            }
         }
 
         private void InitApp() {
