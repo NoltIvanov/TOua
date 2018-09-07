@@ -22,7 +22,7 @@
             </Grid>
 
             <!--  Page content scope  -->
-            <Grid Padding="0,6">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -70,9 +70,11 @@
                     <Grid>
                         <!--  Inform label  -->
                         <controls:LabelExtended
+                            Margin="20,0"
                             FontFamily="{StaticResource Key=OpenSansRegular}"
                             FontSize="{StaticResource Key=TextInputs}"
                             HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
                             Text="{Binding Path=InformText}"
                             TextColor="{StaticResource Key=Black}"
                             VerticalOptions="Center" />
@@ -129,7 +131,7 @@
                     <!--  Bottom common info  -->
                     <StackLayout
                         Grid.Row="1"
-                        Padding="20,0"
+                        Padding="20,0,20,6"
                         Spacing="0">
                         <controls:LabelExtended
                             FontFamily="{StaticResource Key=OpenSansRegular}"

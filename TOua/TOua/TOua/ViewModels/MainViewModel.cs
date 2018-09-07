@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TOua.Factories.Validation;
 using TOua.Helpers.Validations;
@@ -23,9 +24,12 @@ namespace TransportAndOwner.ViewModels {
 
         public ICommand FindCarInfoCommand => new Command(async () => {
             if (ValidateForm()) {
-                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value);
+                Guid busyKey = Guid.NewGuid();
+                SetBusy(busyKey, true);
 
-                ResetValidationObjects();
+                await NavigationService.NavigateToAsync<FoundCarsInfoViewModel>(CarId.Value.Replace(" ", "").Trim());
+
+                SetBusy(busyKey, false);
             }
         });
 
@@ -37,10 +41,6 @@ namespace TransportAndOwner.ViewModels {
 
         public override Task InitializeAsync(object navigationData) {
             ResetValidationObjects();
-
-#if DEBUG
-            CarId.Value = "ВХ4831СЕ";
-#endif
 
             return base.InitializeAsync(navigationData);
         }

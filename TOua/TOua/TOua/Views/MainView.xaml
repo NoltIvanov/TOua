@@ -30,6 +30,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <!--  Header scope  -->
@@ -69,7 +70,7 @@
                 <Grid
                     Grid.Row="1"
                     RowSpacing="20"
-                    TranslationY="15"
+                    TranslationY="20"
                     VerticalOptions="Start">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -121,6 +122,34 @@
                             VerticalOptions="Center" />
                     </controls:ExtendedContentView>
                 </Grid>
+
+                <!--  Bottom common info  -->
+                <StackLayout
+                    Grid.Row="2"
+                    Padding="0,0,0,6"
+                    Spacing="0"
+                    VerticalOptions="End">
+                    <controls:LabelExtended
+                        FontFamily="{StaticResource Key=OpenSansRegular}"
+                        FontSize="{StaticResource Key=HintText}"
+                        HorizontalTextAlignment="Center"
+                        LineHeight=".8"
+                        Text="Актуальна інформація станом на 31.08.2018"
+                        TextColor="{StaticResource Key=LightGray}" />
+
+                    <controls:LabelExtended
+                        FontFamily="{StaticResource Key=OpenSansRegular}"
+                        FontSize="{StaticResource Key=HintText}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        LineHeight=".8"
+                        Text="data.gov.ua"
+                        TextColor="{StaticResource Key=Blue}">
+                        <controls:LabelExtended.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=NavigateToSourceCommand}" />
+                        </controls:LabelExtended.GestureRecognizers>
+                    </controls:LabelExtended>
+                </StackLayout>
             </Grid>
         </AbsoluteLayout>
     </viewBase:ContentPageBaseView.MainContent>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,7 +35,6 @@ namespace TOua.Services.CarsInfo {
                     foundCars = getCarsInfoByCarIdResponse.ToList();
                 }
                 catch (Exception exc) {
-                    Debugger.Break();
                     throw;
                 }
 

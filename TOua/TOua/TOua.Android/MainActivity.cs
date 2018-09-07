@@ -8,7 +8,7 @@ using TransportAndOwner.Views;
 using Xamarin.Forms;
 
 namespace TOua.Droid {
-    [Activity(Label = "Державний транспортний реєстр", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Державний транспортний реєстр", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity {
 
         internal static MainActivity Instance { get; private set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,7 +16,7 @@ namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
 
         private static readonly string _NO_RESULTS_MESSAGE = "Інформації не знайдено";
-        private static readonly string _SOURCE_URL = "https://data.gov.ua/";
+        private static readonly string _WEB_MESSAGE = "Перевірте підключення до інтернету";
 
         private readonly ICarsInfoService _carsInfoService;
 
@@ -29,9 +30,9 @@ namespace TOua.ViewModels {
             CarInfoDetailsPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
         });
 
-        public ICommand NavigateToSourceCommand => new Command((object param) => {
-            Device.OpenUri(new Uri(_SOURCE_URL));
-        });
+        //public ICommand NavigateToSourceCommand => new Command((object param) => {
+        //    Device.OpenUri(new Uri(_SOURCE_URL));
+        //});
 
         private string _targetCarId;
         public string TargetCarId {
@@ -94,14 +95,16 @@ namespace TOua.ViewModels {
 
             try {
                 FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
-                //FoundCars = new List<CarinfoDTO>() { new CarinfoDTO() { OperName = "Rlrrlrll rlrrlrll lrllrlrr rlrrlrll lrllrlrr rlrrlrll lrllrlrr rlrrlrll lrllrlrr", OperCode = "240" } };
 
                 InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
             }
             catch (OperationCanceledException) { }
             catch (ObjectDisposedException) { }
-            catch (Exception exc) {
-                await DialogService.ToastAsync(exc.Message);
+            catch (WebException) {
+                InformText = _WEB_MESSAGE;
+            }
+            catch (Exception) {
+                InformText = _NO_RESULTS_MESSAGE;
             }
 
             SetBusy(busyKey, false);
