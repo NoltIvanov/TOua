@@ -91,6 +91,8 @@
     <Compile Include="Renderers\PullToRefreshLayoutRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AndriodMemoryService.cs" />
+    <Compile Include="Services\MemoryHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\OpenSans-Bold.ttf" />

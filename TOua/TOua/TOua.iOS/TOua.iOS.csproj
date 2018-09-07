@@ -202,4 +202,7 @@
       <Name>TOua</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-256.png" />
+  </ItemGroup>
 </Project>

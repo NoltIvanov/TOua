@@ -66,7 +66,13 @@
                 HorizontalOptions="Center"
                 Scale="1.2"
                 Source="resource://TOua.Resources.Images.cross.svg"
-                VerticalOptions="Center" />
+                VerticalOptions="Center">
+                <ffimagesvg:SvgCachedImage.Scale>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="0.8" />
+                    </OnPlatform>
+                </ffimagesvg:SvgCachedImage.Scale>
+            </ffimagesvg:SvgCachedImage>
         </ContentView>
 
         <Label

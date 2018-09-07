@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Reflection;
 using TOua.Factories.Validation;
 using TOua.Services.CarsInfo;
+using TOua.Services.Memory;
 using TOua.Services.RequestProvider;
 using TOua.ViewModels;
 using TOua.ViewModels.ActionBars;
@@ -38,7 +39,7 @@ namespace TransportAndOwner.ViewModels.Base {
             builder.RegisterType<FoundCarsInfoViewModel>();
 
             // Services.
-            builder.RegisterType<NavigationService>().As<INavigationService>();
+            builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<DialogService>().As<IDialogService>();
             builder.RegisterType<RequestProvider>().As<IRequestProvider>().SingleInstance();
             builder.RegisterType<CarsInfoService>().As<ICarsInfoService>();

@@ -3,6 +3,7 @@ using System.Windows.Input;
 using TOua.Factories.Validation;
 using TOua.Helpers.Validations;
 using TOua.Helpers.Validations.Contracts.ValidationRules;
+using TOua.Services.Memory;
 using TOua.ViewModels;
 using TOua.ViewModels.Base;
 using Xamarin.Forms;
@@ -18,8 +19,6 @@ namespace TransportAndOwner.ViewModels {
             _validationObjectFactory = validationObjectFactory;
 
             ResetValidationObjects();
-
-
         }
 
         public ICommand FindCarInfoCommand => new Command(async () => {

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using TOua.Helpers;
+using TransportAndOwner.Services.Dialog;
 using TransportAndOwner.Services.Navigation;
 using TransportAndOwner.ViewModels.Base;
 using Xamarin.Forms;
@@ -12,6 +14,18 @@ namespace TOua {
             InitializeComponent();
 
             InitApp();
+
+#if DEBUG
+            TrackMemoryUsage();
+#endif
+        }
+
+        private static void TrackMemoryUsage() {
+            Device.StartTimer(TimeSpan.FromSeconds(5), () => {
+                MemoryHelper.DisplayAndroidMemory();
+
+                return true;
+            });
         }
 
         private void InitApp() {
