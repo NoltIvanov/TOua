@@ -105,7 +105,7 @@ namespace TOua.ViewModels {
                 InformText = ex.Message;
             }
             catch (Exception ex) {
-                InformText = _NO_RESULTS_MESSAGE;
+                InformText = "Сервіс тимчасово не доступний";
             }
 
             SetBusy(busyKey, false);

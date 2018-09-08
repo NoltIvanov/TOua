@@ -8,181 +8,169 @@
     xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:viewBase="clr-namespace:TOua.Views.Base"
     dependency:DependencyLocator.AutoWireViewModel="True"
-    BackgroundColor="{StaticResource Key=White}">
+    BackgroundColor="{StaticResource White}">
+
     <viewBase:ContentPageBaseView.MainContent>
+        <!--  Substarate  -->
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
 
-        <Grid>
-            <!--  Substarate  -->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="4*" />
-                </Grid.RowDefinitions>
-                <BoxView Grid.Row="0" BackgroundColor="{StaticResource Key=Blue}" />
+            <BoxView Grid.Row="0" BackgroundColor="{StaticResource Blue}" />
 
-                <!--  Pseudo action bar  -->
-                <Grid
-                    Grid.Row="0"
-                    Padding="20,25"
-                    ColumnSpacing="20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+            <!--  Pseudo action bar  -->
+            <Grid
+                Grid.Row="0"
+                Padding="20,25"
+                ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    <ContentView
-                        Grid.Column="0"
-                        HeightRequest="37"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Center"
-                        WidthRequest="37">
-                        <ContentView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
-                        </ContentView.GestureRecognizers>
-                        <ffimagesvg:SvgCachedImage
-                            HorizontalOptions="Center"
-                            Rotation="90"
-                            Source="resource://TOua.Resources.Images.ic_arrow_down.svg"
-                            VerticalOptions="Center" />
-                    </ContentView>
-
-                    <controls:LabelExtended
-                        Grid.Column="1"
-                        FontFamily="{StaticResource Key=OpenSansBold}"
-                        FontSize="{StaticResource Key=BigTitles}"
-                        FormattedText="{Binding Path=TargetCarId, Converter={StaticResource Key=CarId_string_to_formated_string_converter}}"
-                        HorizontalOptions="Start"
-                        LineBreakMode="TailTruncation"
-                        TextColor="{StaticResource Key=White}"
+                <ContentView
+                    Grid.Column="0"
+                    HeightRequest="37"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    WidthRequest="37">
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BackCommand}" />
+                    </ContentView.GestureRecognizers>
+                    <ffimagesvg:SvgCachedImage
+                        HorizontalOptions="Center"
+                        Rotation="90"
+                        Source="resource://TOua.Resources.Images.ic_arrow_down.svg"
                         VerticalOptions="Center" />
-                </Grid>
+                </ContentView>
 
-
-                <!--  Page content scope  -->
-                <Grid Grid.Row="1" RowSpacing="6">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  Results scope output  -->
-                    <Grid Grid.Row="0">
-                        <!--  Inform label  -->
-                        <controls:LabelExtended
-                            Margin="20,0"
-                            FontFamily="{StaticResource Key=OpenSansRegular}"
-                            FontSize="{StaticResource Key=TextInputs}"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Center"
-                            Text="{Binding Path=InformText}"
-                            TextColor="{StaticResource Key=Black}"
-                            VerticalOptions="Center" />
-                        <ListView
-                            x:Name="_carsInfoList_StackList"
-                            HasUnevenRows="True"
-                            ItemsSource="{Binding Path=FoundCars}"
-                            SeparatorVisibility="None">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Grid Margin="20,3" Padding="0,0,0,2">
-                                            <!--  Shadow  -->
-                                            <controls:ExtendedContentView
-                                                BackgroundColor="Black"
-                                                CornerRadius="7"
-                                                Opacity=".02"
-                                                Scale="1.01"
-                                                TranslationY="1" />
-
-                                            <!--  Info card  -->
-                                            <controls:ExtendedContentView
-                                                Padding="20,23"
-                                                BackgroundColor="White"
-                                                CornerRadius="7">
-                                                <controls:ExtendedContentView.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
-                                                </controls:ExtendedContentView.GestureRecognizers>
-                                                <StackLayout Spacing="9">
-                                                    <Grid>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*" />
-                                                            <RowDefinition Height="*" />
-                                                        </Grid.RowDefinitions>
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="auto" />
-                                                            <ColumnDefinition Width="*" />
-                                                        </Grid.ColumnDefinitions>
-
-                                                        <!--  ICON  -->
-                                                        <BoxView
-                                                            Grid.Row="0"
-                                                            Grid.RowSpan="2"
-                                                            Grid.Column="0"
-                                                            Color="Aqua" />
-
-                                                        <controls:LabelExtended
-                                                            Grid.Row="0"
-                                                            Grid.Column="1"
-                                                            FontFamily="{StaticResource Key=OpenSansBold}"
-                                                            FontSize="{StaticResource Key=PageTitles}"
-                                                            FormattedText="{Binding NRegNew, Converter={StaticResource CarId_string_to_formated_string_converter}}"
-                                                            TextColor="{StaticResource Key=DeepBlue}" />
-                                                        <controls:LabelExtended
-                                                            Grid.Row="1"
-                                                            Grid.Column="1"
-                                                            FontFamily="{StaticResource Key=OpenSansSemiBold}"
-                                                            FontSize="{StaticResource Key=TextInputs}"
-                                                            Text="{Binding Brand}"
-                                                            TextColor="{StaticResource Key=DeepBlue}" />
-                                                    </Grid>
-                                                    <controls:LabelExtended
-                                                        FontFamily="{StaticResource Key=OpenSansSemiBold}"
-                                                        FontSize="{StaticResource Key=ParagraphText}"
-                                                        HorizontalOptions="Start"
-                                                        HorizontalTextAlignment="Start"
-                                                        LetterSpacing=".025"
-                                                        LineBreakMode="WordWrap"
-                                                        LineHeight="1.1"
-                                                        Text="{Binding Path=OperName}"
-                                                        TextColor="{StaticResource Key=Black}" />
-                                                </StackLayout>
-                                            </controls:ExtendedContentView>
-                                        </Grid>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </Grid>
-
-                    <!--  Bottom common info  -->
-                    <StackLayout
-                        Grid.Row="1"
-                        Padding="20,0,20,6"
-                        Spacing="0">
-                        <controls:LabelExtended
-                            FontFamily="{StaticResource Key=OpenSansRegular}"
-                            FontSize="{StaticResource Key=HintText}"
-                            HorizontalTextAlignment="Center"
-                            LineHeight=".8"
-                            Text="Актуальна інформація станом на 31.08.2018"
-                            TextColor="{StaticResource Key=LightGray}" />
-
-                        <controls:LabelExtended
-                            FontFamily="{StaticResource Key=OpenSansRegular}"
-                            FontSize="{StaticResource Key=HintText}"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Center"
-                            LineHeight=".8"
-                            Text="data.gov.ua"
-                            TextColor="{StaticResource Key=Blue}">
-                            <controls:LabelExtended.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Path=NavigateToSourceCommand}" />
-                            </controls:LabelExtended.GestureRecognizers>
-                        </controls:LabelExtended>
-                    </StackLayout>
-                </Grid>
+                <controls:LabelExtended
+                    Grid.Column="1"
+                    FontFamily="{StaticResource Key=OpenSansBold}"
+                    FontSize="{StaticResource Key=BigTitles}"
+                    FormattedText="{Binding Path=TargetCarId, Converter={StaticResource Key=CarId_string_to_formated_string_converter}}"
+                    HorizontalOptions="Start"
+                    LineBreakMode="TailTruncation"
+                    TextColor="{StaticResource Key=White}"
+                    VerticalOptions="Center" />
             </Grid>
 
+            <!--  Results scope output  -->
+            <Grid Grid.Row="1">
+                <ListView
+                    x:Name="_carsInfoList_StackList"
+                    BackgroundColor="{StaticResource ExtraGray}"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding FoundCars}"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Margin="0,0,0,2"
+                                    Padding="10"
+                                    BackgroundColor="{StaticResource White}"
+                                    Spacing="5">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.ViewCarInfoDetailsCommand, Source={Reference Name=_carsInfoList_StackList}}" CommandParameter="{Binding}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--  ICON  -->
+                                        <BoxView
+                                            Grid.Row="0"
+                                            Grid.RowSpan="2"
+                                            Grid.Column="0"
+                                            HeightRequest="30"
+                                            WidthRequest="60"
+                                            Color="CadetBlue" />
+
+                                        <controls:LabelExtended
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontFamily="{StaticResource OpenSansSemiBold}"
+                                            FontSize="{StaticResource BigTitles}"
+                                            FormattedText="{Binding NRegNew, Converter={StaticResource CarId_string_to_formated_string_converter}}"
+                                            TextColor="{StaticResource Black}" />
+
+                                        <controls:LabelExtended
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontFamily="{StaticResource OpenSansSemiBold}"
+                                            FontSize="{StaticResource ParagraphText}"
+                                            Text="{Binding Brand}"
+                                            TextColor="{StaticResource GrayBrand}"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
+
+                                    <controls:LabelExtended
+                                        FontFamily="{StaticResource OpenSansSemiBold}"
+                                        FontSize="{StaticResource ParagraphText}"
+                                        HorizontalOptions="Start"
+                                        HorizontalTextAlignment="Start"
+                                        LetterSpacing=".025"
+                                        LineBreakMode="WordWrap"
+                                        LineHeight="1.1"
+                                        Text="{Binding OperName, Converter={StaticResource TrimNumberOperationConverter}}"
+                                        TextColor="{StaticResource Black}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!--  Inform label  -->
+                <controls:LabelExtended
+                    Margin="20,0"
+                    FontFamily="{StaticResource OpenSansRegular}"
+                    FontSize="{StaticResource TextInputs}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding InformText}"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center" />
+            </Grid>
         </Grid>
     </viewBase:ContentPageBaseView.MainContent>
 </viewBase:ContentPageBaseView>
+
+
+
+<!--  Bottom common info  -->
+<!--<StackLayout
+                    Grid.Row="1"
+                    Padding="20,0,20,6"
+                    Spacing="0">
+    <controls:LabelExtended
+                        FontFamily="{StaticResource Key=OpenSansRegular}"
+                        FontSize="{StaticResource Key=HintText}"
+                        HorizontalTextAlignment="Center"
+                        LineHeight=".8"
+                        Text="Актуальна інформація станом на 31.08.2018"
+                        TextColor="{StaticResource Key=LightGray}" />
+
+    <controls:LabelExtended
+                        FontFamily="{StaticResource Key=OpenSansRegular}"
+                        FontSize="{StaticResource Key=HintText}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        LineHeight=".8"
+                        Text="data.gov.ua"
+                        TextColor="{StaticResource Key=Blue}">
+        <controls:LabelExtended.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Path=NavigateToSourceCommand}" />
+        </controls:LabelExtended.GestureRecognizers>
+    </controls:LabelExtended>
+</StackLayout>-->
+
+
