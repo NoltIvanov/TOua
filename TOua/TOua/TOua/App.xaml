@@ -7,11 +7,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--  COLORS  -->
-            <Color x:Key="Blue">#0064c9</Color>
+            <Color x:Key="Blue">#115faf</Color>
             <Color x:Key="DeepBlue">#042e6f</Color>
             <Color x:Key="Black">#2c2c2c</Color>
             <Color x:Key="GrayBrand">#878787</Color>
-            <Color x:Key="ExtraGray">#FBFBFB</Color>
+            <Color x:Key="ExtraGray">#F1F1F1</Color>
             <Color x:Key="Gray">#cecece</Color>
             <Color x:Key="LightGray">#b1b0b0</Color>
             <Color x:Key="White">#fefefe</Color>
@@ -23,19 +23,16 @@
                 x:TypeArguments="x:String"
                 Android="OpenSans-Regular.ttf#OpenSans"
                 iOS="OpenSans-Regular" />
-
             <OnPlatform
                 x:Key="OpenSansItalic"
                 x:TypeArguments="x:String"
                 Android="OpenSans-Italic.ttf#OpenSans"
                 iOS="OpenSans-Italic" />
-
             <OnPlatform
                 x:Key="OpenSansBold"
                 x:TypeArguments="x:String"
                 Android="OpenSans-Bold.ttf#OpenSans"
                 iOS="OpenSans-Bold" />
-
             <OnPlatform
                 x:Key="OpenSansSemiBold"
                 x:TypeArguments="x:String"
@@ -47,7 +44,7 @@
                 x:Key="BigTitles"
                 x:TypeArguments="x:Double"
                 Android="28"
-                iOS="28" />
+                iOS="24" />
             <OnPlatform
                 x:Key="PageTitles"
                 x:TypeArguments="x:Double"

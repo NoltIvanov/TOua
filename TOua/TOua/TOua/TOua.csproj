@@ -34,6 +34,9 @@
     <None Remove="Resources\Images\ic_close_black.png" />
     <None Remove="Resources\Images\im_city_drawing.png" />
     <None Remove="Resources\Images\im_logo.png" />
+    <None Remove="Resources\Images\Logo_1_blue.svg" />
+    <None Remove="Resources\Images\noun_Arrow_1821822.svg" />
+    <None Remove="Resources\Images\UA.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +45,9 @@
     <EmbeddedResource Include="Resources\Images\im_city_drawing.png" />
     <EmbeddedResource Include="Resources\Images\im_logo.png" />
     <EmbeddedResource Include="Resources\Images\ic_arrow_down.svg" />
+    <EmbeddedResource Include="Resources\Images\Logo_1_blue.svg" />
+    <EmbeddedResource Include="Resources\Images\noun_Arrow_1821822.svg" />
+    <EmbeddedResource Include="Resources\Images\UA.svg" />
   </ItemGroup>
 
   <ItemGroup>

@@ -77,7 +77,7 @@ namespace TransportAndOwner.Services.Navigation {
 
         public Task NavigateToAsync<TViewModel>(object parameter) where TViewModel : ViewModelBase =>
              InternalNavigateToExistedAsync(typeof(TViewModel), parameter);
-        
+
 
         public Task RemoveLastFromBackStackAsync() {
             if (Application.Current.MainPage is CustomNavigationView mainPage) {
@@ -135,20 +135,17 @@ namespace TransportAndOwner.Services.Navigation {
                         }
 
                         await GoBackAsync();
-                    }
-                    else if (stepsToForBackStack == 1) {
+                    } else if (stepsToForBackStack == 1) {
                         await GoBackAsync();
                     }
 
                     await ((ViewModelBase)targetPage.BindingContext).InitializeAsync(parameter);
-                }
-                else {
+                } else {
                     Page page = CreatePage(viewModelType, parameter);
                     await navigationPage.PushAsync(page, false);
                     await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
                 }
-            }
-            else {
+            } else {
                 Page page = CreatePage(viewModelType, parameter);
                 Application.Current.MainPage = new CustomNavigationView(page);
                 await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
@@ -172,8 +169,7 @@ namespace TransportAndOwner.Services.Navigation {
                 }
 
                 return Activator.CreateInstance(pageType) as Page;
-            }
-            catch (Exception exc) {
+            } catch (Exception exc) {
                 Debugger.Break();
 
                 throw;
