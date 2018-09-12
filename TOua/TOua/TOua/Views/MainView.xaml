@@ -134,7 +134,7 @@
                         FontSize="{StaticResource Key=HintText}"
                         HorizontalTextAlignment="Center"
                         LineHeight=".8"
-                        Text="Актуальна інформація станом на 31.08.2018"
+                        Text="Актуальна інформація станом на 7.09.2018"
                         TextColor="{StaticResource Key=LightGray}" />
 
                     <controls:LabelExtended
