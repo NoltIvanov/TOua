@@ -5,13 +5,10 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
-		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>		
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -48,7 +45,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Державний транспортний реєстр</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.TOua</string>
+	<string>com.nolt.carid</string>
 	<key>CFBundleVersion</key>
 	<string>1.01</string>
 	<key>CFBundleName</key>
