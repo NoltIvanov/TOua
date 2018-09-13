@@ -23,7 +23,7 @@ namespace TransportAndOwner.ViewModels {
 
             ResetValidationObjects();
         }
-
+       
         public ICommand FindCarInfoCommand => new Command(async () => {
             if (ValidateForm()) {
                 Guid busyKey = Guid.NewGuid();
@@ -38,7 +38,7 @@ namespace TransportAndOwner.ViewModels {
         private ValidatableObject<string> _carId;
         public ValidatableObject<string> CarId {
             get => _carId;
-            set => SetProperty<ValidatableObject<string>>(ref _carId, value);
+            set => SetProperty(ref _carId, value);
         }
 
         public override Task InitializeAsync(object navigationData) {
