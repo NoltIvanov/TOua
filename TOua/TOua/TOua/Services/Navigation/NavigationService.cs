@@ -49,8 +49,8 @@ namespace TransportAndOwner.Services.Navigation {
 
                 IReadOnlyCollection<ViewModelBase> readOnlyResult =
                     customNavigationView.Navigation.NavigationStack
-                    .Select<Page, ViewModelBase>(p => (ViewModelBase)p.BindingContext)
-                    .ToList<ViewModelBase>()
+                    .Select(p => (ViewModelBase)p.BindingContext)
+                    .ToList()
                     .AsReadOnly();
 
                 return readOnlyResult;
