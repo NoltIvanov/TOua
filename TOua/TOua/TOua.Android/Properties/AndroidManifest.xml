@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.2" package="com.nolt.TOua" android:installLocation="auto" android:versionCode="3">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.5" package="com.nolt.TOua" android:installLocation="auto" android:versionCode="5">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Державний транспортний реєстр"></application>
+	<application android:label="Державний транспортний реєстр" android:theme="@style/MainTheme" android:icon="@drawable/Icon" android:logo="@drawable/Icon"></application>
 </manifest>

@@ -10,13 +10,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FFImageLoading;
+using FFImageLoading.Svg.Platform;
+using FFImageLoading.Views;
 
 namespace TOua.Droid.Controlers.Activities {
     [Activity(
         MainLauncher = false,
         LaunchMode = LaunchMode.SingleInstance,
-        ScreenOrientation = ScreenOrientation.Portrait,
-        Theme = "@style/SplashScreenTheme")]
+        ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreenActivity : Android.Support.V7.App.AppCompatActivity {
 
         protected override void OnCreate(Bundle savedInstanceState) {
@@ -27,14 +29,23 @@ namespace TOua.Droid.Controlers.Activities {
             //
             //Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
 
-            NavigateToMainActivity();
+            SetContentView(Resource.Layout.SpalshLayout);
+
+            ImageService.Instance
+            .LoadCompiledResource("todo_1.svg")
+            .WithCustomDataResolver(new SvgDataResolver(200, 0, true))
+            .Into(FindViewById<ImageViewAsync>(Resource.Id.image_View));
+
+            System.Threading.ThreadPool.QueueUserWorkItem(o => NavigateToMainActivity());
         }
 
         private void NavigateToMainActivity() {
+            System.Threading.Thread.Sleep(2000);
+
             Intent intent = new Intent(this, typeof(MainActivity));
             ActivityOptions activityOptions = ActivityOptions.MakeCustomAnimation(this, Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
 
-            StartActivity(intent, activityOptions.ToBundle());
+            RunOnUiThread(() => StartActivity(intent, activityOptions.ToBundle()));
             Finish();
         }
     }
