@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TOua.Exceptions;
+using TOua.Helpers;
 using TOua.Models.DTOs;
 using TOua.Services.CarsInfo;
 using TOua.ViewModels.Base;
@@ -15,9 +17,6 @@ using Xamarin.Forms;
 
 namespace TOua.ViewModels {
     public class FoundCarsInfoViewModel : ContentPageBaseViewModel {
-
-        private static readonly string _NO_RESULTS_MESSAGE = "Інформації не знайдено";
-        private static readonly string _WEB_MESSAGE = "Перевірте підключення до інтернету";
 
         private readonly ICarsInfoService _carsInfoService;
 
@@ -31,10 +30,6 @@ namespace TOua.ViewModels {
             CarInfoDetailsPopupViewModel.ViewCarInfoDetails(param as CarinfoDTO);
         });
 
-        //public ICommand NavigateToSourceCommand => new Command((object param) => {
-        //    Device.OpenUri(new Uri(_SOURCE_URL));
-        //});
-
         private string _targetCarId;
         public string TargetCarId {
             get => _targetCarId;
@@ -47,10 +42,10 @@ namespace TOua.ViewModels {
             private set => SetProperty<string>(ref _informText, value);
         }
 
-        private List<CarinfoDTO> _foundCars = new List<CarinfoDTO>();
+        private List<CarinfoDTO> _foundCars;
         public List<CarinfoDTO> FoundCars {
             get => _foundCars;
-            private set => SetProperty<List<CarinfoDTO>>(ref _foundCars, value);
+            private set => SetProperty(ref _foundCars, value);
         }
 
         private CarInfoDetailsPopupViewModel _testPopupViewModel;
@@ -59,7 +54,7 @@ namespace TOua.ViewModels {
             set {
                 _testPopupViewModel?.Dispose();
 
-                SetProperty<CarInfoDetailsPopupViewModel>(ref _testPopupViewModel, value);
+                SetProperty(ref _testPopupViewModel, value);
             }
         }
 
@@ -97,10 +92,10 @@ namespace TOua.ViewModels {
             try {
                 FoundCars = await _carsInfoService.GetCarsInfoByCarIdAsync(targetCarId, cancellationTokenSource);
 
-                InformText = FoundCars == null || !(FoundCars.Any()) ? _NO_RESULTS_MESSAGE : "";
+                InformText = FoundCars == null || !(FoundCars.Any()) ? AppConsts.MESSAGE_NO_RESULTS : string.Empty;
             }
-            catch (OperationCanceledException ex) { }
-            catch (ObjectDisposedException ex) { }
+            catch (OperationCanceledException ex) { Debug.WriteLine($"ERROR: {ex.Message}"); }
+            catch (ObjectDisposedException ex) { Debug.WriteLine($"ERROR: {ex.Message}"); }
             catch (ConnectivityException ex) {
                 InformText = ex.Message;
             }

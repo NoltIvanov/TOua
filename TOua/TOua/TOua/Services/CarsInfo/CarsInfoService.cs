@@ -17,17 +17,31 @@ namespace TOua.Services.CarsInfo {
 
         private readonly IRequestProvider _requestProvider;
 
-        public CarsInfoService(IRequestProvider requestProvider) {
+        private readonly IResilientRequestProvider _resilientRequestProvider;
+
+        public CarsInfoService(IRequestProvider requestProvider, IResilientRequestProvider resilientRequestProvider) {
             _requestProvider = requestProvider;
+            _resilientRequestProvider = resilientRequestProvider;
         }
 
         public Task<List<CarinfoDTO>> GetCarsInfoByCarIdAsync(string carId, CancellationTokenSource cancellationTokenSource) =>
             Task.Run<List<CarinfoDTO>>(async () => {
+                List<CarinfoDTO> foundCars = null;
+
+                //try {
+                //    string url = string.Format("http://31.128.79.4:13823/api/carid/getinfobycarnumber?carNumber={0}", carId);
+
+                //    foundCars = await _resilientRequestProvider.GetAsync<List<CarinfoDTO>>(url);
+                //} catch (ConnectivityException exc) {
+                //    throw exc;
+                //} catch (Exception ex) {
+                //    Debug.WriteLine($"ERROR: {ex.Message}");
+                //    throw new Exception(ex.Message);
+                //}
+
                 GetCarsInfoByCarIdRequest getCarsInfoByCarIdRequest = new GetCarsInfoByCarIdRequest() {
                     Url = string.Format("http://31.128.79.4:13823/api/carid/getinfobycarnumber?carNumber={0}", carId)
                 };
-
-                List<CarinfoDTO> foundCars = new List<CarinfoDTO>();
 
                 GetCarsInfoByCarIdResponse getCarsInfoByCarIdResponse;
 
@@ -35,9 +49,11 @@ namespace TOua.Services.CarsInfo {
                     getCarsInfoByCarIdResponse = await _requestProvider.GetAsync<GetCarsInfoByCarIdRequest, GetCarsInfoByCarIdResponse>(getCarsInfoByCarIdRequest);
 
                     foundCars = getCarsInfoByCarIdResponse.ToList();
-                } catch (ConnectivityException exc) {
+                }
+                catch (ConnectivityException exc) {
                     throw exc;
-                } catch (Exception exc) {
+                }
+                catch (Exception exc) {
                     throw new Exception(exc.Message);
                 }
 

@@ -44,6 +44,9 @@ namespace TransportAndOwner.ViewModels.Base {
             builder.RegisterType<RequestProvider>().As<IRequestProvider>().SingleInstance();
             builder.RegisterType<CarsInfoService>().As<ICarsInfoService>();
 
+            // test.
+            builder.RegisterType<ResilientRequestProvider>().As<IResilientRequestProvider>().SingleInstance();
+
             // Factories.
             builder.RegisterType<ValidationObjectFactory>().As<IValidationObjectFactory>();
 
